@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/', 'WelcomeController@index')->name('index');
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Pages
+Route::get('/about', 'PagesController@about')->name('about');
+Route::get('/call', 'PagesController@call')->name('call');
+Route::get('/review', 'PagesController@review')->name('review');
+
+//User
+Route::resource('user', 'UserController');
+
+//AutoCategories
+Route::resource('autoCategories', 'AutoCategories');

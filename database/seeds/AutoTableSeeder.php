@@ -1,0 +1,45 @@
+<?php
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
+class AutoTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('auto')->insert([
+            'name' => 'Mitsubishi',
+            'image' => '/img/auto/1.jpg',
+            'weight' => 'до 20',
+            'autocategories_id' => 4,
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('auto')->insert([
+            'name' => 'Mitsubishi',
+            'image' => '/img/auto/1.jpg',
+            'weight' => 'до 10',
+            'autocategories_id' => 2,
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('auto')->insert([
+            'name' => 'Mitsubishi',
+            'image' => '/img/auto/1.jpg',
+            'weight' => 'до 40',
+            'autocategories_id' => 4,
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('auto')->insert([
+            'name' => 'Mitsubishi',
+            'image' => '/img/auto/1.jpg',
+            'weight' => 'до 50',
+            'autocategories_id' => 1,
+            'created_at' => Carbon::now(),
+        ]);
+    }
+}

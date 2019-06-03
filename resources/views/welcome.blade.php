@@ -1,99 +1,53 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+        	<h1 class="text-center">Быстрый поиск спецтехники по России и странам СНГ</h1>
+        	<h3 class="text-center">Более 10 000 исполнителей ожидают вас!</h3>
+            <div class="card">
+                <div class="card-header text-center"><b>Любые виды спецтехники и не только!</b></div>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+                <div class="card-body text-center">
+                	<div class="row">
+	                	@foreach($autocategories as $category)
+	                		<div class="col-sm-2">
+								<a href="{{ url('/autoCategories/'.$category->id) }}">
+									<img src="{{ url($category->image) }}" class="card-img-top" alt="{{ $category->name }}">
+									<h5 class="card-title">{{ $category->name }}</h5>
+								</a>
+							</div>
+	                	@endforeach
+	                </div>
                 </div>
-            @endif
+            </div>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+            <div class="card">
+                <div class="card-header text-center">
+                	<b>Новые исполнители</b><br>
+                	исполнители которые недавно зарегистрировались
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="card-body text-center">
+                	<div class="row">
+	                	@foreach($user as $autoUser)
+	                		<div class="col-sm-6 card">
+								<div class="row">
+									<div class="col-sm-4">
+										<img src="{{ url($autoUser->auto->image) }}" class="card-img-top" alt="{{ $autoUser->auto->name }}">
+										<p><b>Грузоподъемность:</b> {{ $autoUser->auto->weight }}</p>
+									</div>
+									<div class="col-sm-8">
+										<h5 class="text-left" style="margin-top: 20px"><a href="{{ url('/user/'.$autoUser->id) }}">{{ $autoUser->name }}</a></h5>
+									</div>
+								</div>
+							</div>
+	                	@endforeach
+	                </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+</div>
+@endsection

@@ -61,6 +61,21 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="isExecutor" class="col-md-4 col-form-label text-md-right">{{ __('Тип аккаунта') }}</label>
+
+                            <div class="col-md-6">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-success active">
+                                        <input type="radio" name="isExecutor" id="isExecutor1" autocomplete="off" checked value="1"> Исполнитель
+                                    </label>
+                                    <label class="btn btn-success">
+                                        <input type="radio" name="isExecutor" id="isExecutor2" autocomplete="off" value="0"> Заказчик
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

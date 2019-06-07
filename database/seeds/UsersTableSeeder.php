@@ -14,31 +14,54 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        for($i=1; $i<=5; $i++) {
+            DB::table('cash')->insert([
+                'user_id' => $i,
+            ]);
+        }
+        
+        DB::table('users')->insert([
+            'name' => 'Кирилл Трифонов',
+            'email' =>'flancyk.flancyk@yandex.ru',
+            'cash_id' => 1,
+            'auto_id' => 1,
+            'isExecutor' => 1,
+            'password' => bcrypt('k123123'),
+            'created_at' => Carbon::now(),
+        ]);
         DB::table('users')->insert([
             'name' => 'Максим',
             'email' => Str::random(10).'@gmail.com',
+            'cash_id' => 2,
             'auto_id' => 1,
+            'isExecutor' => 1,
             'password' => bcrypt('secret'),
             'created_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
             'name' => 'Антон',
             'email' => Str::random(10).'@gmail.com',
+            'cash_id' => 3,
             'auto_id' => 2,
+            'isExecutor' => 1,
             'password' => bcrypt('secret'),
             'created_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
             'name' => 'Сергей',
             'email' => Str::random(10).'@gmail.com',
+            'cash_id' => 4,
             'auto_id' => 3,
+            'isExecutor' => 1,
             'password' => bcrypt('secret'),
             'created_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
             'name' => 'Алексей',
             'email' => Str::random(10).'@gmail.com',
+            'cash_id' => 5,
             'auto_id' => 4,
+            'isExecutor' => 1,
             'password' => bcrypt('secret'),
             'created_at' => Carbon::now(),
         ]);

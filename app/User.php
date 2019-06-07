@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'cash_id', 'auto_id', 'isExecutor', 'password',
     ];
 
     /**
@@ -40,5 +40,10 @@ class User extends Authenticatable
     public function auto()
     {
         return $this->belongsTo('App\Auto');
+    }
+
+    public function cash()
+    {
+        return $this->belongsTo('App\Cash');
     }
 }

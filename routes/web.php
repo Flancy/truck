@@ -27,3 +27,6 @@ Route::resource('user', 'UserController');
 
 //AutoCategories
 Route::resource('autoCategories', 'AutoCategories');
+
+//Dashboard
+Route::get('/setting', 'DashboardController@settingShow')->name('setting');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Auto;
+use App\AutoCategories;
+use App\City;
 
 class AutoCategories extends Controller
 {
@@ -47,8 +49,9 @@ class AutoCategories extends Controller
     public function show($id)
     {
         $auto = Auto::where('autocategories_id', '=', $id)->get();
+        $cities = City::all();
 
-        return view('autoCategory.show')->with('auto', $auto);
+        return view('autoCategory.show')->with(['auto' => $auto, 'cities' => $cities]);
     }
 
     /**

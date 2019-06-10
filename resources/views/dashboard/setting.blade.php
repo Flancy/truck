@@ -22,12 +22,12 @@
                                 </h3>
 
                                 <p><b>Email:</b> {{ $user->email }}</p>
-                                @if(isset($user->auto))
+                                @isset($user->auto)
                                     <p>
                                         <b>Автомобиль:</b> {{ $user->auto->name }} <br>
                                         <img src="{{ url($user->auto->image) }}" alt="" class="setting-auto">
                                     </p>
-                                @endif
+                                @endisset
                             </div>
 						</div>
                         <div class="col-sm-3 text-right">

@@ -4,3 +4,10 @@
 .setting-auto {
   max-width: 100px;
 }
+.search .btn {
+  width: 100%;
+}
+.search .row {
+  margin-left: 0;
+  margin-right: 0;
+}

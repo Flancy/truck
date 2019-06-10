@@ -5,6 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="row">
+                @include('elements.search')
+                
                 @foreach($auto as $itemAuto)
                     <div class="col-sm-4 card">
                         <div class="card-body text-center">

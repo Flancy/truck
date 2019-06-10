@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\AutoCategories;
 use App\Auto;
 use App\User;
+use App\City;
 
 class WelcomeController extends Controller
 {
@@ -18,7 +19,9 @@ class WelcomeController extends Controller
     {
         $autocategories = AutoCategories::all();
         $user = User::all();
-        return view('welcome')->with(['autocategories' => $autocategories, 'user' => $user]);
+        $cities = City::all();
+        
+        return view('welcome')->with(['autocategories' => $autocategories, 'user' => $user, 'cities' => $cities]);
     }
 
     /**

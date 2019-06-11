@@ -17,6 +17,7 @@ class AutoTableSeeder extends Seeder
             'name' => 'Mitsubishi',
             'image' => '/img/auto/1.jpg',
             'weight' => 'до 20',
+            'city_id' => 1,
             'autocategories_id' => 4,
             'created_at' => Carbon::now(),
         ]);
@@ -24,6 +25,7 @@ class AutoTableSeeder extends Seeder
             'name' => 'Mitsubishi',
             'image' => '/img/auto/1.jpg',
             'weight' => 'до 10',
+            'city_id' => 1,
             'autocategories_id' => 2,
             'created_at' => Carbon::now(),
         ]);
@@ -31,6 +33,7 @@ class AutoTableSeeder extends Seeder
             'name' => 'Mitsubishi',
             'image' => '/img/auto/1.jpg',
             'weight' => 'до 40',
+            'city_id' => 2,
             'autocategories_id' => 4,
             'created_at' => Carbon::now(),
         ]);
@@ -38,6 +41,7 @@ class AutoTableSeeder extends Seeder
             'name' => 'Mitsubishi',
             'image' => '/img/auto/1.jpg',
             'weight' => 'до 50',
+            'city_id' => 3,
             'autocategories_id' => 1,
             'created_at' => Carbon::now(),
         ]);

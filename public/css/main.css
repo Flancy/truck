@@ -4,6 +4,9 @@
 .setting-auto {
   max-width: 100px;
 }
+.search {
+  width: 100%;
+}
 .search .btn {
   width: 100%;
 }

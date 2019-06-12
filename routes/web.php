@@ -30,6 +30,7 @@ Route::resource('autoCategories', 'AutoCategories');
 
 //Dashboard
 Route::get('/setting', 'DashboardController@settingShow')->name('setting');
+Route::post('/auto', 'DashboardController@settingSaveAuto')->name('saveAuto');
 
 //Search
 Route::get('/search', 'SearchController@index')->name('search');

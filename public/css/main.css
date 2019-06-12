@@ -4,6 +4,9 @@
 .setting-auto {
   max-width: 100px;
 }
+.custom-file-input ~ .custom-file-label::after {
+  content: "\412\44B\431\440\430\442\44C";
+}
 .search {
   width: 100%;
 }

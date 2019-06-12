@@ -20,7 +20,7 @@
 	    @isset($autocategories)
 		    <div class="col">
 		    	<select class="custom-select" name="autocategories_id">
-					<option value="0">Категегория транспорта:</option>
+					<option value="0">Категория транспорта:</option>
 					@foreach($autocategories as $category)
 						<option value="{{ $category->id }}" {{ $category->id === old('autocategories_id') ? 'selected' : '' }}>{{ $category->name }}</option>
 					@endforeach

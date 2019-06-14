@@ -46,7 +46,7 @@
                                     <div class="col-sm-4">
                                         <p>
                                             <b>Автомобиль:</b> {{ $car->name }} <br>
-                                            <img src="{{ $car->image }}" alt="" class="setting-auto">
+                                            <img src="{{ url($car->image) }}" alt="" class="setting-auto">
                                         </p>
                                     </div>
                                 @endforeach

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\User;
+use App\Auto;
 
 class UserController extends Controller
 {
@@ -46,9 +48,20 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        $id = Auth::id();
         $user = User::findOrFail($id);
 
-        return view('user.show')->with('user', $user);
+        $cars = Auto::all();
+
+        $carsAuthUser = array();
+
+        foreach ($cars as $car) {
+            if($car->user->id == $id) {
+                array_push($carsAuthUser, $car);
+            }
+        }
+
+        return view('user.show')->with(['user' => $user, 'cars' => $carsAuthUser]);
     }
 
     /**

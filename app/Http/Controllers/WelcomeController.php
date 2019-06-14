@@ -18,10 +18,10 @@ class WelcomeController extends Controller
     public function index()
     {
         $autocategories = AutoCategories::all();
-        $cars = Auto::all();
+        $users = User::take(4)->get();
         $cities = City::all();
         
-        return view('welcome')->with(['autocategories' => $autocategories, 'cars' => $cars, 'cities' => $cities]);
+        return view('welcome')->with(['autocategories' => $autocategories, 'users' => $users, 'cities' => $cities]);
     }
 
     /**

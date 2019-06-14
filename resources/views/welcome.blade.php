@@ -39,25 +39,24 @@
 
                 <div class="card-body text-center">
                 	<div class="row">
-	                	@foreach($cars as $car)
-	                		@isset($car)
+                		@isset($users)
+		                	@foreach($users as $user)
 		                		<div class="col-sm-6 mb-2">
 									<div class="p-2">
 										<div class="card">
 											<div class="row">
 												<div class="col-sm-5">
-													<img src="{{ url($car->image) }}" class="card-img-top" alt="{{ $car->name }}">
-													<p><b>Грузоподъемность:</b> {{ $car->weight }}</p>
+													<img src="{{ url($user->avatar) }}" class="card-img-top" alt="{{ $user->name }}">
 												</div>
 												<div class="col-sm-7">
-													<h5 class="text-left" style="margin-top: 20px"><a href="{{ url('/user/'.$car->user->id) }}">{{ $car->user->name }}</a></h5>
+													<h5 class="text-left" style="margin-top: 20px"><a href="{{ url('/user/'.$user->id) }}">{{ $user->name }}</a></h5>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							@endisset
-	                	@endforeach
+		                	@endforeach
+						@endisset
 	                </div>
                 </div>
             </div>

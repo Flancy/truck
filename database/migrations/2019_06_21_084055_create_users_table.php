@@ -23,8 +23,6 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->default('/img/dashboard/empty-avatar.jpg');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('auto_id')->nullable();
-            $table->foreign('auto_id')->references('id')->on('auto');
             $table->rememberToken();
             $table->timestamps();
         });

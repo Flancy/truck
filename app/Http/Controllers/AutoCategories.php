@@ -48,10 +48,7 @@ class AutoCategories extends Controller
      */
     public function show($id)
     {
-        $auto = Auto::where('autocategories_id', '=', $id)->get();
-        $cities = City::all();
-
-        return view('autoCategory.show')->with(['auto' => $auto, 'cities' => $cities]);
+        
     }
 
     /**

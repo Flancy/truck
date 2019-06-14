@@ -25,9 +25,6 @@ Route::get('/review', 'PagesController@review')->name('review');
 //User
 Route::resource('user', 'UserController');
 
-//AutoCategories
-Route::resource('autoCategories', 'AutoCategories');
-
 //Dashboard
 Route::get('/setting', 'DashboardController@settingShow')->name('setting');
 Route::post('/auto', 'DashboardController@settingSaveAuto')->name('saveAuto');

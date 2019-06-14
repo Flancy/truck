@@ -1,3 +1,15 @@
+.card-body_autocategory button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.card-body_autocategory button h5 {
+  margin-top: 20px;
+}
+.card-body_autocategory button:hover h5,
+.card-body_autocategory button:active h5 {
+  text-decoration: underline;
+}
 .setting-info {
   text-align: left;
 }

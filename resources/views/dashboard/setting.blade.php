@@ -40,12 +40,18 @@
                     <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addAuto">Добавить автомобиль +</a>
 
                     <div class="cars mt-4">
-                        @isset($user->auto)
-                            <p>
-                                <b>Автомобиль:</b> {{ $user->auto->name }} <br>
-                                <img src="{{ url($user->auto->image) }}" alt="" class="setting-auto">
-                            </p>
-                        @endisset
+                        <div class="row">
+                            @isset($cars)
+                                @foreach($cars as $car)
+                                    <div class="col-sm-4">
+                                        <p>
+                                            <b>Автомобиль:</b> {{ $car->name }} <br>
+                                            <img src="{{ $car->image }}" alt="" class="setting-auto">
+                                        </p>
+                                    </div>
+                                @endforeach
+                            @endisset
+                        </div>
                     </div>
                 </div>
             </div>

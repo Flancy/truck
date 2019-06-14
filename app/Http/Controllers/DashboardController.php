@@ -16,27 +16,58 @@ class DashboardController extends Controller
         $this->middleware('auth');
     }
 
+    protected function getCarsInfo()
+    {
+        $carsInfo = [
+            'autocategories' => AutoCategories::all(),
+            'cities' => City::all(),
+        ];
+
+        return $carsInfo;
+    }
+
     public function settingShow()
     {
-        $autocategories = AutoCategories::all();
-        $user = User::all();
-        $cities = City::all();
+        $carsInfo = $this->getCarsInfo();
 
     	$id = Auth::id();
         $user = User::findOrFail($id);
 
-        return view('dashboard.setting')->with(['user' => $user, 'autocategories' => $autocategories, 'cities' => $cities]);
+        $cars = Auto::all();
+
+        $carsAuthUser = array();
+
+        foreach ($cars as $car) {
+            if($car->user->id == $id) {
+                array_push($carsAuthUser, $car);
+            }
+        }
+
+        return view('dashboard.setting')->with(['user' => $user, 'autocategories' => $carsInfo['autocategories'], 'cities' => $carsInfo['cities'], 'cars' => $carsAuthUser]);
     }
 
     public function settingSaveAuto(Request $request)
     {
-        $autocategories = AutoCategories::all();
-        $user = User::all();
-        $cities = City::all();
+        if ($request->hasFile('image')) {
+            $userId = Auth::id();
 
-        $id = Auth::id();
-        $user = User::findOrFail($id);
+            $path = 'car-'.$request->image->getSize().rand(200, 3000).'.jpg';
 
-        return view('dashboard.setting')->with(['user' => $user, 'autocategories' => $autocategories, 'cities' => $cities]);
+            $file = $request->image->storeAs('public/auto', $path);
+            $path = 'storage/auto/'.$path;
+ 
+            $car = new Auto;
+
+            $car->name = $request->name;
+            $car->weight = $request->weight;
+            $car->user_id = $userId;
+            $car->city_id = $request->city_id;
+            $car->autocategories_id = $request->autocategories_id;
+            $car->image = $path;
+
+            $car->save();
+        }
+
+        return redirect()->action('DashboardController@settingShow');
     }
 }

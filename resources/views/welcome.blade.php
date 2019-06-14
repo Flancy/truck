@@ -12,14 +12,19 @@
             <div class="card">
                 <div class="card-header text-center"><b>Любые виды спецтехники и не только!</b></div>
 
-                <div class="card-body text-center">
+                <div class="card-body card-body_autocategory text-center">
                 	<div class="row">
 	                	@foreach($autocategories as $category)
 	                		<div class="col-sm-2">
-								<a href="{{ url('/autoCategories/'.$category->id) }}">
-									<img src="{{ url($category->image) }}" class="card-img-top" alt="{{ $category->name }}">
-									<h5 class="card-title">{{ $category->name }}</h5>
-								</a>
+	                			<form method="GET" action="{{ url('search') }}">
+	                				<input type="hidden" name="isExecutor" value="1">
+	                				<input type="hidden" name="city_id" value="0">
+	                				<input type="hidden" name="autocategories_id" value="{{ $category->id }}">
+	                				<button type="submit">
+										<img src="{{ url($category->image) }}" class="card-img-top" alt="{{ $category->name }}">
+										<h5 class="card-title">{{ $category->name }}</h5>
+									</button>
+								</form>
 							</div>
 	                	@endforeach
 	                </div>
@@ -34,18 +39,18 @@
 
                 <div class="card-body text-center">
                 	<div class="row">
-	                	@foreach($user as $autoUser)
-	                		@isset($autoUser->auto)
+	                	@foreach($cars as $car)
+	                		@isset($car)
 		                		<div class="col-sm-6 mb-2">
 									<div class="p-2">
 										<div class="card">
 											<div class="row">
 												<div class="col-sm-5">
-													<img src="{{ url($autoUser->auto->image) }}" class="card-img-top" alt="{{ $autoUser->auto->name }}">
-													<p><b>Грузоподъемность:</b> {{ $autoUser->auto->weight }}</p>
+													<img src="{{ url($car->image) }}" class="card-img-top" alt="{{ $car->name }}">
+													<p><b>Грузоподъемность:</b> {{ $car->weight }}</p>
 												</div>
 												<div class="col-sm-7">
-													<h5 class="text-left" style="margin-top: 20px"><a href="{{ url('/user/'.$autoUser->id) }}">{{ $autoUser->name }}</a></h5>
+													<h5 class="text-left" style="margin-top: 20px"><a href="{{ url('/user/'.$car->user->id) }}">{{ $car->user->name }}</a></h5>
 												</div>
 											</div>
 										</div>

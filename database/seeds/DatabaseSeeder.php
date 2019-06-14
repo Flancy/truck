@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CityTableSeeder::class);
         $this->call(AutoCategoriesTableSeeder::class);
-        $this->call(AutoTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(AutoTableSeeder::class);
     }
 }

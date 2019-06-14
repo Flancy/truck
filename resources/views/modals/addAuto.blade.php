@@ -1,7 +1,7 @@
 <div class="modal fade" id="addAuto" tabindex="-1" role="dialog" aria-labelledby="addAutoModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{ url('auto') }}" method="POST">
+            <form action="{{ url('auto') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }} 
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Добавление автомобиля</h5>
@@ -12,7 +12,11 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="nameAuto">Наименование:</label>
-                        <input type="text" name="name" class="form-control" id="nameAuto" placeholder="Наименование транспорта">
+                        <input type="text" name="name" class="form-control" id="nameAuto" placeholder="Наименование транспорта:">
+                    </div>
+                    <div class="form-group">
+                        <label for="weightAuto">Грузоподъемность до:</label>
+                        <input type="number" name="weight" class="form-control" id="weightAuto" placeholder="Вес:">
                     </div>
                     <div class="form-group">
                         <label for="city_id">Город:</label>

@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-use App\User;
-use App\Auto;
 use App\Reviews;
 
-class UserController extends Controller
+class ReviewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,7 +36,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $review = new Reviews;
+
+        $review->name = Auth::user()->name;
+        $review->description = $request->description;
+        $review->user_id = Auth::id();
+
+        $review->save();
+
+        return redirect()->action('UserController@show', ['id' => $request->user_id]);
     }
 
     /**
@@ -49,27 +55,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
-
-        $cars = Auto::all();
-        $reviews = Reviews::all();
-
-        $carsAuthUser = array();
-        $reviewsAuthUser = array();
-
-        foreach ($cars as $car) {
-            if($car->user->id == $id) {
-                array_push($carsAuthUser, $car);
-            }
-        }
-
-        foreach ($reviews as $review) {
-            if($review->user_id == $id) {
-                array_push($reviewsAuthUser, $review);
-            }
-        }
-
-        return view('user.show')->with(['user' => $user, 'cars' => $carsAuthUser, 'reviews' => $reviews]);
+        //
     }
 
     /**

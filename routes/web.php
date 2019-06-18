@@ -31,3 +31,6 @@ Route::post('/auto', 'DashboardController@settingSaveAuto')->name('saveAuto');
 
 //Search
 Route::get('/search', 'SearchController@index')->name('search');
+
+//Reviews
+Route::post('/reviews', 'ReviewsController@store')->name('reviews');

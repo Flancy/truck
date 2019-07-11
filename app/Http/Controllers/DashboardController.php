@@ -8,6 +8,7 @@ use App\AutoCategories;
 use App\Auto;
 use App\City;
 use App\User;
+use App\Orders;
 
 class DashboardController extends Controller
 {
@@ -34,8 +35,10 @@ class DashboardController extends Controller
         $user = User::findOrFail($id);
 
         $cars = Auto::all();
+        $orders = Orders::all();
 
         $carsAuthUser = array();
+        $ordersAuthUser = array();
 
         foreach ($cars as $car) {
             if($car->user->id == $id) {
@@ -43,7 +46,13 @@ class DashboardController extends Controller
             }
         }
 
-        return view('dashboard.setting')->with(['user' => $user, 'autocategories' => $carsInfo['autocategories'], 'cities' => $carsInfo['cities'], 'cars' => $carsAuthUser]);
+        foreach ($orders as $order) {
+            if($order->user_id == $id) {
+                array_push($ordersAuthUser, $order);
+            }
+        }
+
+        return view('dashboard.setting')->with(['user' => $user, 'autocategories' => $carsInfo['autocategories'], 'cities' => $carsInfo['cities'], 'cars' => $carsAuthUser, 'orders' => $ordersAuthUser]);
     }
 
     public function settingSaveAuto(Request $request)

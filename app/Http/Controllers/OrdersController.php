@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\AutoCategories;
-use App\Auto;
-use App\User;
-use App\City;
+use Auth;
 use App\Orders;
 
-class WelcomeController extends Controller
+class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +15,7 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $autocategories = AutoCategories::all();
-        $users = User::take(4)->get();
-        $cities = City::all();
-        $orders = Orders::all();
-        
-        return view('welcome')->with(['autocategories' => $autocategories, 'users' => $users, 'cities' => $cities, 'orders' => $orders]);
+        //
     }
 
     /**
@@ -44,7 +36,17 @@ class WelcomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = new Orders;
+
+        $order->price = $request->price;
+        $order->description = $request->description;
+        $order->city_id = $request->city_id;
+        $order->autocategories_id = $request->autocategories_id;
+        $order->user_id = Auth::id();
+
+        $order->save();
+
+        return redirect()->action('DashboardController@settingShow');
     }
 
     /**

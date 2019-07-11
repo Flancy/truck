@@ -34,3 +34,6 @@ Route::get('/search', 'SearchController@index')->name('search');
 
 //Reviews
 Route::post('/reviews', 'ReviewsController@store')->name('reviews');
+
+//Orders
+Route::post('/order', 'OrdersController@store')->name('order');

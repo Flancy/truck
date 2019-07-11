@@ -2,9 +2,9 @@
 	<form method="GET" action="{{ url('search') }}" class="form row align-items-center">
 	    <div class="col">
 	    	<select class="custom-select" name="isExecutor">
-				<option value="0">Я ищу:</option>
+				<option value="1">Я ищу:</option>
 				<option value="1">Я ищу исполнителя</option>
-				<option value="2">Я ищу заказы</option>
+				<option value="0">Я ищу заказы</option>
 			</select>
 	    </div>
 	    @isset($cities)

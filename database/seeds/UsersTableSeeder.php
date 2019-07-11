@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Кирилл Трифонов',
             'email' =>'flancyk.flancyk@yandex.ru',
             'cash_id' => 1,
-            'isExecutor' => 1,
+            'isExecutor' => 0,
             'password' => bcrypt('k123123'),
             'created_at' => Carbon::now(),
         ]);

@@ -57,9 +57,39 @@
                     </div>
                 </div>
             </div>
+        @else
+            <div class="col-md-12">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4>Ваши объявления:</h4>
+                        <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addOrder">Добавить объявление +</a>
+
+                        <div class="cars mt-4 p-3">
+                            <div class="row">
+                                @isset($orders)
+                                    @foreach($orders as $order)
+                                        <div class="card mb-3 col-sm-4 pt-2">
+                                            <p>
+                                                <b>Ставка:</b> {{ $order->price }} <br>
+                                            </p>
+                                            <p>
+                                                <b>Описание:</b> {{ $order->description }} <br>
+                                            </p>
+                                            <p>
+                                                <b>Город:</b> {{ $order->city->name }} <br>
+                                            </p>
+                                        </div>
+                                    @endforeach
+                                @endisset
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         @endif
     </div>
 </div>
 
 @include('modals.addAuto')
+@include('modals.addOrder')
 @endsection

@@ -24,9 +24,9 @@ class SearchController extends Controller
         }
 
         if($isExecutor == 0) {
-            $orders = Orders::where([['city_id','=',$city_id]])->get();
+            $orders = Orders::where([['city_id','=',$city_id],['autocategories_id','=', $autocategories_id]])->get();
 
-            return view('pages.search')->with(['autocategories' => $autocategories, 'cities' => $cities, 'orders' => $orders]);
+            return view('pages.search')->with(['autocategories' => $autocategories, 'cities' => $cities, 'orders' => $orders, 'isExecutor' => $isExecutor, 'city_id' => $city_id, 'autocategories_id' => $autocategories_id]);
         } else {
             if($city_id == 0) {
                 $auto = Auto::where([['autocategories_id','=', $autocategories_id]])->get();
@@ -34,7 +34,7 @@ class SearchController extends Controller
                 $auto = Auto::where([['city_id','=',$city_id],['autocategories_id','=', $autocategories_id]])->get();
             }
 
-            return view('pages.search')->with(['autocategories' => $autocategories, 'auto' => $auto, 'cities' => $cities]);
+            return view('pages.search')->with(['autocategories' => $autocategories, 'auto' => $auto, 'cities' => $cities,  'isExecutor' => $isExecutor, 'city_id' => $city_id, 'autocategories_id' => $autocategories_id]);
         }
     }
 }

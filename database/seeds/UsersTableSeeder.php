@@ -63,7 +63,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Кирилл Трифонов',
             'email' =>'flancyk.flancyk@gmail.com',
-            'cash_id' => 1,
+            'cash_id' => 6,
             'isExecutor' => 1,
             'password' => bcrypt('klon5031'),
             'created_at' => Carbon::now(),

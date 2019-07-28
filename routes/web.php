@@ -37,4 +37,5 @@ Route::post('/reviews', 'ReviewsController@store')->name('reviews');
 
 //Orders
 Route::post('/order', 'OrdersController@store')->name('order');
+Route::delete('/order', 'OrdersController@destroyOrder')->name('order.destroy');
 Route::get('/order/{id}', 'OrdersController@showOrder')->name('order.show');

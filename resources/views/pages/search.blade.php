@@ -36,21 +36,26 @@
                         <h4><b>По вашему запросу ничего не найдено</b></h4>
                     @else
                         @foreach($orders as $order)
-                            <div class="card mb-3 col-sm-4 pt-2">
-                                <p>
-                                    <b>Ставка:</b> {{ $order->price }} <br>
-                                </p>
-                                <p>
-                                    <b>Описание:</b> {{ $order->description }} <br>
-                                </p>
-                                <p>
-                                    <b>Город:</b> {{ $order->city->name }} <br>
-                                </p>
-                                
-                                @if(Auth::user()->isExecutor)
-                                    <a href="#" class="btn btn-success mb-3">Отлкликнуться</a>
-                                @endif
-                            </div>
+                            @if($order->status == 0)
+                                <div class="card mb-3 col-sm-4 pt-2">
+                                    <p>
+                                        <b>Имя:</b> {{ $order->user->name }} <br>
+                                    </p>
+                                    <p>
+                                        <b>Ставка:</b> {{ $order->price }} <br>
+                                    </p>
+                                    <p>
+                                        <b>Описание:</b> {{ $order->description }} <br>
+                                    </p>
+                                    <p>
+                                        <b>Город:</b> {{ $order->city->name }} <br>
+                                    </p>
+                                    
+                                    @if(!Auth::guest() && Auth::user()->isExecutor == 1)
+                                        <a href="{{ route('order.show', ['id' => $order->id]) }}" class="btn btn-success mb-3">Отлкликнуться</a>
+                                    @endif
+                                </div>
+                            @endif
                         @endforeach
                     @endif
                 @endisset

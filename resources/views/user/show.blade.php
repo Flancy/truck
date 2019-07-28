@@ -33,7 +33,6 @@
                 </div>
             </div>
 
-
             <div class="card mt-4">
                 <div class="card-body">
                     <h3><b>Отзывы ({{ count($reviews) }})</b></h3>

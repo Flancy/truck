@@ -38,6 +38,7 @@ class OrdersController extends Controller
     {
         $order = new Orders;
 
+        $order->status = 0;
         $order->price = $request->price;
         $order->description = $request->description;
         $order->city_id = $request->city_id;
@@ -93,6 +94,16 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Orders::destroy($id);
+
+        return redirect()->action('DashboardController@settingShow');
+    }
+
+
+    public function destroyOrder(Request $request)
+    {
+        Orders::destroy($request->id);
+
+        return redirect()->action('DashboardController@settingShow');
     }
 }

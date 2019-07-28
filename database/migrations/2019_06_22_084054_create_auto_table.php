@@ -20,14 +20,14 @@ class CreateAutoTable extends Migration
             $table->string('weight');
             $table->bigInteger('user_id')->unsigned();
             $table->unsignedBigInteger('city_id')->nullable();
-            $table->foreign('city_id')->references('id')->on('city');
+            $table->foreign('city_id')->references('id')->on('city')->onDelete('cascade');
             $table->unsignedBigInteger('autocategories_id')->nullable();
-            $table->foreign('autocategories_id')->references('id')->on('autocategories');
+            $table->foreign('autocategories_id')->references('id')->on('autocategories')->onDelete('cascade');
             $table->timestamps();
         });
 
        Schema::table('auto', function($table) {
-           $table->foreign('user_id')->references('id')->on('users');
+           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
        });
     }
 

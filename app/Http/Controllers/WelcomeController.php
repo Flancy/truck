@@ -22,8 +22,12 @@ class WelcomeController extends Controller
         $users = User::take(4)->get();
         $cities = City::all();
         $orders = Orders::all();
+
+        $isExecutor = 1;
+        $city_id = 1;
+        $autocategories_id = 1;
         
-        return view('welcome')->with(['autocategories' => $autocategories, 'users' => $users, 'cities' => $cities, 'orders' => $orders]);
+        return view('welcome')->with(['autocategories' => $autocategories, 'users' => $users, 'cities' => $cities, 'orders' => $orders, 'isExecutor' => $isExecutor, 'city_id' => $city_id, 'autocategories_id' => $autocategories_id]);
     }
 
     /**

@@ -70,7 +70,15 @@
                             <div class="row">
                                 @isset($orders)
                                     @foreach($orders as $order)
-                                        <div class="card mb-3 col-sm-4 pt-2">
+                                        <div class="card mb-3 col-sm-4 pt-2 card-orders">
+                                            <form method="POST" action="{{ route('order.destroy') }}">
+                                                @csrf
+                                                {{ method_field('DELETE') }}
+                                                <input type="hidden" name="id" value="{{ $order->id }}">
+                                                <button type="submit" class="btn btn-danger remove-icon">
+                                                    Удалить ×
+                                                </button>
+                                            </form>
                                             <p>
                                                 <b>Ставка:</b> {{ $order->price }} <br>
                                             </p>

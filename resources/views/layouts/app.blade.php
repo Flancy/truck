@@ -42,8 +42,8 @@
                             Исполнители
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Поиск исполнителя</a>
-                                <a class="dropdown-item" href="#">Стать исполнителем</a>
+                                <a class="dropdown-item" href="{{ route('search') }}?isExecutor=1&city_id=1&autocategories_id=1">Поиск исполнителя</a>
+                                <a class="dropdown-item" href="{{ route('register') }}">Стать исполнителем</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -51,8 +51,8 @@
                             Заказы
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Поиск заказа</a>
-                                <a class="dropdown-item" href="#">Разместить заказ</a>
+                                <a class="dropdown-item" href="{{ route('search') }}?isExecutor=0&city_id=1&autocategories_id=1">Поиск заказа</a>
+                                <a class="dropdown-item" href="{{ route('setting') }}">Разместить заказ</a>
                             </div>
                         </li>
                         <li class="nav-item">

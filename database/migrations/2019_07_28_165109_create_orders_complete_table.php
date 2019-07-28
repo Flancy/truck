@@ -21,8 +21,8 @@ class CreateOrdersCompleteTable extends Migration
         });
 
         Schema::table('orders_complete', function($table) {
-           $table->foreign('user_id')->references('id')->on('users');
-           $table->foreign('order_id')->references('id')->on('orders');
+           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+           $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
         });
     }
 

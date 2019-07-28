@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->integer('isExecutor')->nullable();
             $table->unsignedBigInteger('cash_id')->nullable();
-            $table->foreign('cash_id')->references('id')->on('cash');
+            $table->foreign('cash_id')->references('id')->on('cash')->onDelete('cascade');
             $table->string('avatar')->default('/img/dashboard/empty-avatar.jpg');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

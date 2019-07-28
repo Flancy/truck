@@ -3,13 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Orders extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+    
     protected $table = 'orders';
 
     protected $fillable = [
-        'price', 'description', 'user_id', 'city_id', 'autocategories_id',
+        'status', 'price', 'description', 'user_id', 'city_id', 'autocategories_id',
     ];
 
     public function user()

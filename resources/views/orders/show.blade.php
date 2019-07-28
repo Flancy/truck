@@ -24,6 +24,15 @@
                                 <p>
                                     <b>Город:</b> {{ $order->city->name }} <br>
                                 </p>
+
+                                @if(!Auth::guest() && Auth::user()->isExecutor == 1)
+                                    <form action="{{ route('orderChange.changeStatus') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="order_id" value="{{ $order->id }}">
+
+                                        <button type="submit" class="btn btn-success mb-3">Отлкликнуться</button>
+                                    </form>
+                                @endif
                             </div>
 						</div>
 					</div>

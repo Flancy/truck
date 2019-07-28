@@ -39,3 +39,4 @@ Route::post('/reviews', 'ReviewsController@store')->name('reviews');
 Route::post('/order', 'OrdersController@store')->name('order');
 Route::delete('/order', 'OrdersController@destroyOrder')->name('order.destroy');
 Route::get('/order/{id}', 'OrdersController@showOrder')->name('order.show');
+Route::post('/orderChange', 'OrdersController@changeStatus')->name('orderChange.changeStatus');

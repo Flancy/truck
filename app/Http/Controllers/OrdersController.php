@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Orders;
+use App\OrdersComplete;
 
 class OrdersController extends Controller
 {
@@ -72,6 +73,22 @@ class OrdersController extends Controller
     public function edit($id)
     {
         //
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $order = new OrdersComplete;
+
+        $order->user_id = Auth::id();
+        $order->order_id = $request->order_id;
+
+        $order->save();
+
+        $order = Orders::findOrFail($request->order_id);
+        $order->status = 1;
+        $order->save();
+
+        return redirect()->action('DashboardController@settingShow');
     }
 
     /**

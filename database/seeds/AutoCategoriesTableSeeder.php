@@ -14,6 +14,11 @@ class AutoCategoriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('autocategories')->insert([
+            'name' => 'Легковые',
+            'image' => '/img/autocategories/7.png',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('autocategories')->insert([
             'name' => 'Эвакуаторы',
             'image' => '/img/autocategories/1.png',
             'created_at' => Carbon::now(),

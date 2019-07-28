@@ -37,3 +37,4 @@ Route::post('/reviews', 'ReviewsController@store')->name('reviews');
 
 //Orders
 Route::post('/order', 'OrdersController@store')->name('order');
+Route::get('/order/{id}', 'OrdersController@showOrder')->name('order.show');

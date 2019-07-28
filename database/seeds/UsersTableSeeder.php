@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i=1; $i<=5; $i++) {
+        for($i=1; $i<=6; $i++) {
             DB::table('cash')->insert([
                 'user_id' => $i,
             ]);
@@ -58,6 +58,14 @@ class UsersTableSeeder extends Seeder
             'cash_id' => 5,
             'isExecutor' => 1,
             'password' => bcrypt('secret'),
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Кирилл Трифонов',
+            'email' =>'flancyk.flancyk@gmail.com',
+            'cash_id' => 1,
+            'isExecutor' => 1,
+            'password' => bcrypt('klon5031'),
             'created_at' => Carbon::now(),
         ]);
     }

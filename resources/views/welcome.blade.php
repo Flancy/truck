@@ -13,21 +13,35 @@
                 <div class="card-header text-center"><b>Любые виды спецтехники и не только!</b></div>
 
                 <div class="card-body card-body_autocategory text-center">
-                	<div class="row">
-	                	@foreach($autocategories as $category)
-	                		<div class="col-sm-2">
-	                			<form method="GET" action="{{ url('search') }}">
-	                				<input type="hidden" name="isExecutor" value="1">
-	                				<input type="hidden" name="city_id" value="0">
-	                				<input type="hidden" name="autocategories_id" value="{{ $category->id }}">
-	                				<button type="submit">
-										<img src="{{ url($category->image) }}" class="card-img-top" alt="{{ $category->name }}">
-										<h5 class="card-title">{{ $category->name }}</h5>
-									</button>
-								</form>
-							</div>
-	                	@endforeach
-	                </div>
+                	<div id="carouselAutoCategories" class="carousel slide" data-ride="carousel">
+			            <div class="carousel-inner row w-100 mx-auto" role="listbox">
+			            	@foreach($autocategories as $category)
+				        		@if($loop->index == 0)
+		                			<div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+		                		@else
+		                			<div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+		                		@endif
+		                			<form method="GET" action="{{ url('search') }}">
+		                				<input type="hidden" name="isExecutor" value="1">
+		                				<input type="hidden" name="city_id" value="0">
+		                				<input type="hidden" name="autocategories_id" value="{{ $category->id }}">
+		                				<button type="submit">
+											<img src="{{ url($category->image) }}" class="card-img-top" alt="{{ $category->name }}">
+											<h5 class="card-title">{{ $category->name }}</h5>
+										</button>
+									</form>
+								</div>
+		                	@endforeach
+			            </div>
+			            <a class="carousel-control-prev" href="#carouselAutoCategories" role="button" data-slide="prev">
+			                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			                <span class="sr-only">Previous</span>
+			            </a>
+			            <a class="carousel-control-next" href="#carouselAutoCategories" role="button" data-slide="next">
+			                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			                <span class="sr-only">Next</span>
+			            </a>
+			        </div>
                 </div>
             </div>
 
@@ -87,7 +101,7 @@
 	                                </p>
 	                                
 	                                @if(!Auth::guest() && Auth::user()->isExecutor == 1)
-	                                    <a href="#" class="btn btn-success mb-3">Отлкликнуться</a>
+	                                    <a href="{{ route('order.show', ['id' => $order->id]) }}" class="btn btn-success mb-3">Отлкликнуться</a>
 	                                @endif
 	                            </div>
 		                	@endforeach

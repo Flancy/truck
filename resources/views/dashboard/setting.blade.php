@@ -14,8 +14,10 @@
                             <div class="setting-info">
                                 <h3>
                                     <b>{{ $user->name }}</b>
-                                    (@if($user->isExecutor)
+                                    (@if($user->isExecutor == 1)
                                         Исполнитель
+                                    @elseif($user->isExecutor == 2)
+                                        Диспетчер
                                     @else
                                         Заказчик
                                     @endif)

@@ -34,16 +34,14 @@
     }
     .carousel-inner .carousel-item-next {
         position: relative;
-        -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
     /* left or forward direction */
     .active.carousel-item-left + .carousel-item-next.carousel-item-left,
     .carousel-item-next.carousel-item-left + .carousel-item,
     .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item {
         position: relative;
-        -webkit-transform: translate3d(-100%, 0, 0);
-                transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
     /* farthest right hidden item must be also positioned for animations */
@@ -60,8 +58,7 @@
     .carousel-item-prev.carousel-item-right + .carousel-item,
     .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item {
         position: relative;
-        -webkit-transform: translate3d(100%, 0, 0);
-                transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
         visibility: visible;
         display: block;
         visibility: visible;
@@ -78,21 +75,18 @@
     }
     .carousel-inner .carousel-item-next {
         position: relative;
-        -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
     /* left or forward direction */
     .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
         position: relative;
-        -webkit-transform: translate3d(-100%, 0, 0);
-                transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
     /* right or prev direction */
     .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
         position: relative;
-        -webkit-transform: translate3d(100%, 0, 0);
-                transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
         visibility: visible;
         display: block;
         visibility: visible;
@@ -119,15 +113,13 @@
     /* left or forward direction */
     .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
         position: relative;
-        -webkit-transform: translate3d(-100%, 0, 0);
-                transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
     /* right or prev direction //t - previous slide direction last item animation fix */
     .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
         position: relative;
-        -webkit-transform: translate3d(100%, 0, 0);
-                transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
         visibility: visible;
         display: block;
         visibility: visible;
@@ -143,34 +135,4 @@
 .carousel-control-prev-icon, .carousel-control-next-icon {
     width: 30px;
     height: 30px;
-}.card-body_autocategory button {
-  background-color: transparent;
-  border: none;
-  outline: none;
-}
-.card-body_autocategory button h5 {
-  margin-top: 20px;
-}
-.card-body_autocategory button:hover h5,
-.card-body_autocategory button:active h5 {
-  text-decoration: underline;
-}
-.setting-info {
-  text-align: left;
-}
-.setting-auto {
-  max-width: 100px;
-}
-.custom-file-input ~ .custom-file-label::after {
-  content: "\412\44B\431\440\430\442\44C";
-}
-.search {
-  width: 100%;
-}
-.search .btn {
-  width: 100%;
-}
-.search .row {
-  margin-left: 0;
-  margin-right: 0;
 }

@@ -9,6 +9,7 @@ use App\Auto;
 use App\City;
 use App\User;
 use App\Orders;
+use App\OrdersComplete;
 
 class DashboardController extends Controller
 {
@@ -37,6 +38,8 @@ class DashboardController extends Controller
         $cars = Auto::all();
         $orders = Orders::all();
 
+        $ordersUser = OrdersComplete::where('user_id', $id)->get();
+
         $carsAuthUser = array();
         $ordersAuthUser = array();
 
@@ -52,7 +55,7 @@ class DashboardController extends Controller
             }
         }
 
-        return view('dashboard.setting')->with(['user' => $user, 'autocategories' => $carsInfo['autocategories'], 'cities' => $carsInfo['cities'], 'cars' => $carsAuthUser, 'orders' => $ordersAuthUser]);
+        return view('dashboard.setting')->with(['user' => $user, 'autocategories' => $carsInfo['autocategories'], 'cities' => $carsInfo['cities'], 'cars' => $carsAuthUser, 'orders' => $ordersAuthUser, 'ordersUser' => $ordersUser]);
     }
 
     public function settingSaveAuto(Request $request)

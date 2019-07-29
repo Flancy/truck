@@ -25,7 +25,7 @@
                                     <b>Город:</b> {{ $order->city->name }} <br>
                                 </p>
 
-                                @if(!Auth::guest() && Auth::user()->isExecutor == 1)
+                                @if(!Auth::guest() && Auth::user()->isExecutor == 0)
                                     <form action="{{ route('orderChange.changeStatus') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="order_id" value="{{ $order->id }}">

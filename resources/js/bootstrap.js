@@ -73,4 +73,24 @@ jQuery(document).ready(function($) {
 	        }
 	    }
 	});
+
+	$('.card-orders .btn').click(function(event) {
+		var userId = $(this).attr('data-id');
+
+		$.ajax({
+			url: '/api/user/'+userId,
+			type: 'GET',
+		})
+		.done(function(data) {
+			$('#getExecutor .modal-body').html('<p><b>Имя:</b> '+data.name+'</p><p><b>Телефон:</b> '+data.phone+'</p>');
+			$('#getExecutor .btn-success').attr('href', '/user/'+data.id);
+		})
+		.fail(function(data) {
+			console.log("error");
+		})
+		.always(function(data) {
+			console.log("complete");
+		});
+		
+	});
 });

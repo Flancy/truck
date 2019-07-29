@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->default('/img/dashboard/empty-avatar.jpg');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('phone');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -55,7 +55,7 @@
                 	<div class="row">
                 		@isset($users)
 		                	@foreach($users as $user)
-		                		@if($user->isExecutor)
+		                		@if($user->isExecutor == 0)
 			                		<div class="col-sm-6 mb-2">
 										<div class="p-2">
 											<div class="card">
@@ -101,7 +101,7 @@
 		                                    <b>Город:</b> {{ $order->city->name }} <br>
 		                                </p>
 		                                
-		                                @if(!Auth::guest() && Auth::user()->isExecutor == 1)
+		                                @if(!Auth::guest() && Auth::user()->isExecutor == 0)
 		                                    <a href="{{ route('order.show', ['id' => $order->id]) }}" class="btn btn-success mb-3">Отлкликнуться</a>
 		                                @endif
 		                            </div>

@@ -31,4 +31,9 @@ class Orders extends Model
     {
         return $this->belongsTo('App\City');
     }
+
+    public function getOrderComplete()
+    {
+        return $this->hasOne('App\OrdersComplete', 'order_id', 'id');
+    }
 }

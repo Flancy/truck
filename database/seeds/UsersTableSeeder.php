@@ -26,6 +26,7 @@ class UsersTableSeeder extends Seeder
             'cash_id' => 1,
             'isExecutor' => 0,
             'password' => bcrypt('k123123'),
+            'phone' => '8-(800)-888-88-88',
             'created_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
@@ -34,6 +35,7 @@ class UsersTableSeeder extends Seeder
             'cash_id' => 2,
             'isExecutor' => 1,
             'password' => bcrypt('secret'),
+            'phone' => '8-(800)-888-88-88',
             'created_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
@@ -42,6 +44,7 @@ class UsersTableSeeder extends Seeder
             'cash_id' => 3,
             'isExecutor' => 1,
             'password' => bcrypt('secret'),
+            'phone' => '8-(800)-888-88-88',
             'created_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
@@ -50,6 +53,7 @@ class UsersTableSeeder extends Seeder
             'cash_id' => 4,
             'isExecutor' => 1,
             'password' => bcrypt('secret'),
+            'phone' => '8-(800)-888-88-88',
             'created_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
@@ -58,6 +62,7 @@ class UsersTableSeeder extends Seeder
             'cash_id' => 5,
             'isExecutor' => 1,
             'password' => bcrypt('secret'),
+            'phone' => '8-(800)-888-88-88',
             'created_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
@@ -66,6 +71,7 @@ class UsersTableSeeder extends Seeder
             'cash_id' => 6,
             'isExecutor' => 1,
             'password' => bcrypt('klon5031'),
+            'phone' => '8-(800)-888-88-88',
             'created_at' => Carbon::now(),
         ]);
     }

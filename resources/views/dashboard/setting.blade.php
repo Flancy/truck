@@ -14,7 +14,7 @@
                             <div class="setting-info">
                                 <h3>
                                     <b>{{ $user->name }}</b>
-                                    (@if($user->isExecutor == 1)
+                                    (@if($user->isExecutor == 0)
                                         Исполнитель
                                     @elseif($user->isExecutor == 2)
                                         Диспетчер
@@ -27,15 +27,13 @@
                             </div>
 						</div>
                         <div class="col-sm-3 text-right">
-                            @if($user->isExecutor)
-                                <p>Ваш баланс: <b>{{ $user->cash->balance }} руб.</b></p>
-                            @endif
+                            <p>Ваш баланс: <b>{{ $user->cash->balance }} руб.</b></p>
                         </div>
 					</div>
                 </div>
             </div>
         </div>
-        @if($user->isExecutor)
+        @if($user->isExecutor == 0)
             <div class="col-md-12">
                 <div class="card mt-3">
                     <div class="card-body">
@@ -59,7 +57,32 @@
                     </div>
                 </div>
             </div>
-        @else
+
+            <div class="col-md-12">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4>Взятые заказы:</h4>
+                        <div class="cars mt-4">
+                            @isset($ordersUser)
+                                @foreach($ordersUser as $orderUser)
+                                    <div class="col-sm-4 card mb-3 pt-2">
+                                        <p>
+                                            <b>Ставка:</b> {{ $orderUser->orders->price }} <br>
+                                        </p>
+                                        <p>
+                                            <b>Описание:</b> {{ $orderUser->orders->description }} <br>
+                                        </p>
+                                        <p>
+                                            <b>Город:</b> {{ $orderUser->orders->city->name }} <br>
+                                        </p>
+                                    </div>
+                                @endforeach
+                            @endisset
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($user->isExecutor == 1)
             <div class="col-md-12">
                 <div class="card mt-3">
                     <div class="card-body">
@@ -88,6 +111,9 @@
                                             <p>
                                                 <b>Город:</b> {{ $order->city->name }} <br>
                                             </p>
+                                            @if($order->status == 1)
+                                                <a href="#" class="btn btn-success mb-3" data-toggle="modal" data-target="#getExecutor" data-id="{{ $order->getOrderComplete->user_id }}">Посмотреть исполнителя</a>
+                                            @endif
                                         </div>
                                     @endforeach
                                 @endisset
@@ -102,4 +128,5 @@
 
 @include('modals.addAuto')
 @include('modals.addOrder')
+@include('modals.getExecutor')
 @endsection

@@ -62,7 +62,7 @@
                     <h3><b>Оставить свой отзыв</b></h3>
 
                     @if (Auth::check())
-                        @if(!Auth::user()->isExecutor)
+                        @if(!Auth::user()->isExecutor == 0)
                             <form action="{{ route('reviews') }}" method="POST">
                                 {{ csrf_field() }} 
                                 <div class="form-row">

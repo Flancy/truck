@@ -179,6 +179,12 @@
   border: none;
   text-shadow: 0 1px 0 #fff;
 }
+.ordersProcess {
+  margin-left: -15px;
+  margin-right: -15px;
+  display: flex;
+  flex-wrap: wrap;
+}
 .search {
   width: 100%;
 }

@@ -91,6 +91,25 @@ jQuery(document).ready(function($) {
 		.always(function(data) {
 			console.log("complete");
 		});
-		
+	});
+
+	$('.ordersProcess .btn').click(function(event) {
+		var userId = $(this).attr('data-id');
+		$('#getExecutor #exampleModalLabel').text('Заказчик')
+
+		$.ajax({
+			url: '/api/user/'+userId,
+			type: 'GET',
+		})
+		.done(function(data) {
+			$('#getExecutor .modal-body').html('<p><b>Имя:</b> '+data.name+'</p><p><b>Телефон:</b> '+data.phone+'</p>');
+			$('#getExecutor .btn-success').attr('href', '/user/'+data.id);
+		})
+		.fail(function(data) {
+			console.log("error");
+		})
+		.always(function(data) {
+			console.log("complete");
+		});
 	});
 });

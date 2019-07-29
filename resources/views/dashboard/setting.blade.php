@@ -62,19 +62,22 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         <h4>Взятые заказы:</h4>
-                        <div class="cars mt-4">
+                        <div class="cars ordersProcess mt-4">
                             @isset($ordersUser)
                                 @foreach($ordersUser as $orderUser)
-                                    <div class="col-sm-4 card mb-3 pt-2">
-                                        <p>
-                                            <b>Ставка:</b> {{ $orderUser->orders->price }} <br>
-                                        </p>
-                                        <p>
-                                            <b>Описание:</b> {{ $orderUser->orders->description }} <br>
-                                        </p>
-                                        <p>
-                                            <b>Город:</b> {{ $orderUser->orders->city->name }} <br>
-                                        </p>
+                                    <div class="col-sm-4">
+                                        <div class="card mb-3 p-2">
+                                            <p>
+                                                <b>Ставка:</b> {{ $orderUser->orders->price }} <br>
+                                            </p>
+                                            <p>
+                                                <b>Описание:</b> {{ $orderUser->orders->description }} <br>
+                                            </p>
+                                            <p>
+                                                <b>Город:</b> {{ $orderUser->orders->city->name }} <br>
+                                            </p>
+                                            <a href="#" class="btn btn-success mb-3" data-toggle="modal" data-target="#getExecutor" data-id="{{ $orderUser->orders->user->id }}">Посмотреть исполнителя</a>
+                                        </div>
                                     </div>
                                 @endforeach
                             @endisset

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Orders;
 use App\OrdersComplete;
+use App\Cash;
 
 class OrdersController extends Controller
 {
@@ -77,9 +78,18 @@ class OrdersController extends Controller
 
     public function changeStatus(Request $request)
     {
+        $userId = Auth::id();
+        $userCash = Cash::where('user_id', $userId)->first();
+        $balance = $userCash->balance;
+
+        if($balance >= 100) {
+            $userCash->balance = $balance-100;
+            $userCash->save();
+        }
+
         $order = new OrdersComplete;
 
-        $order->user_id = Auth::id();
+        $order->user_id = $userId;
         $order->order_id = $request->order_id;
 
         $order->save();

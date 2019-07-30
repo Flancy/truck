@@ -10,9 +10,15 @@
             <div class="modal-body">
 
             </div>
-            <div class="modal-footer">
+            @if(Auth::user()->isExecutor == 1)
+                <div class="modal-footer justify-content-center">
+                    <a href="#" class="btn btn-danger orderCancel">Заказ не выполнен</a>
+                    <a href="#" class="btn btn-success orderComplete">Заказ выполнен</a>
+                </div>
+            @endif
+            <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                <a href="#" class="btn btn-success">Перейти на исполнителя</a>
+                <a href="#" class="btn btn-success btn-more">Перейти на исполнителя</a>
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@ class WelcomeController extends Controller
     public function index()
     {
         $autocategories = AutoCategories::all();
-        $users = User::take(5)->get();
+        $users = User::take(5)->where('isExecutor', 0)->get();
         $cities = City::all();
         $orders = Orders::all();
 

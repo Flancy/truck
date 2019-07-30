@@ -49294,12 +49294,15 @@ jQuery(document).ready(function ($) {
   });
   $('.card-orders .btn').click(function (event) {
     var userId = $(this).attr('data-id');
+    var orderId = $(this).attr('data-order-id');
     $.ajax({
       url: '/api/user/' + userId,
       type: 'GET'
     }).done(function (data) {
       $('#getExecutor .modal-body').html('<p><b>Имя:</b> ' + data.name + '</p><p><b>Телефон:</b> ' + data.phone + '</p>');
-      $('#getExecutor .btn-success').attr('href', '/user/' + data.id);
+      $('#getExecutor .btn-more').attr('href', '/user/' + data.id);
+      $('#getExecutor .orderCancel').attr('href', '/orderChange/' + orderId + '/2');
+      $('#getExecutor .orderComplete').attr('href', '/orderChange/' + orderId + '/3');
     }).fail(function (data) {
       console.log("error");
     }).always(function (data) {
@@ -49314,7 +49317,7 @@ jQuery(document).ready(function ($) {
       type: 'GET'
     }).done(function (data) {
       $('#getExecutor .modal-body').html('<p><b>Имя:</b> ' + data.name + '</p><p><b>Телефон:</b> ' + data.phone + '</p>');
-      $('#getExecutor .btn-success').attr('href', '/user/' + data.id);
+      $('#getExecutor .btn-more').attr('href', '/user/' + data.id);
     }).fail(function (data) {
       console.log("error");
     }).always(function (data) {

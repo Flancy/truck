@@ -66,7 +66,12 @@
                             @isset($ordersUser)
                                 @foreach($ordersUser as $orderUser)
                                     <div class="col-sm-4">
-                                        <div class="card mb-3 p-2">
+                                        <div class="card card-orders mb-3 p-2">
+                                            @if($orderUser->orders->status == 1 || $orderUser->orders->status == 2)
+                                                <span class="badge badge-secondary remove-icon">Не выполнен</span>
+                                            @else
+                                                <span class="badge badge-success remove-icon">Выполнен</span>
+                                            @endif
                                             <p>
                                                 <b>Ставка:</b> {{ $orderUser->orders->price }} <br>
                                             </p>
@@ -76,7 +81,9 @@
                                             <p>
                                                 <b>Город:</b> {{ $orderUser->orders->city->name }} <br>
                                             </p>
-                                            <a href="#" class="btn btn-success mb-3" data-toggle="modal" data-target="#getExecutor" data-id="{{ $orderUser->orders->user->id }}">Посмотреть исполнителя</a>
+                                            @if($orderUser->orders->status == 1)
+                                                <a href="#" class="btn btn-success mb-3" data-toggle="modal" data-target="#getExecutor" data-id="{{ $orderUser->orders->user->id }}">Посмотреть заказчика</a>
+                                            @endif
                                         </div>
                                     </div>
                                 @endforeach
@@ -92,19 +99,25 @@
                         <h4>Ваши объявления:</h4>
                         <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addOrder">Добавить объявление +</a>
 
-                        <div class="cars mt-4 p-3">
-                            <div class="row">
-                                @isset($orders)
-                                    @foreach($orders as $order)
-                                        <div class="card mb-3 col-sm-4 pt-2 card-orders">
-                                            <form method="POST" action="{{ route('order.destroy') }}">
-                                                @csrf
-                                                {{ method_field('DELETE') }}
-                                                <input type="hidden" name="id" value="{{ $order->id }}">
-                                                <button type="submit" class="btn btn-danger remove-icon">
-                                                    Удалить ×
-                                                </button>
-                                            </form>
+                        <div class="cars ordersProcess mt-4">
+                            @isset($orders)
+                                @foreach($orders as $order)
+                                    <div class="col-sm-4">
+                                        <div class="card card-orders mb-3 p-2">
+                                            @if($order->status == 0)
+                                                <form method="POST" action="{{ route('order.destroy') }}">
+                                                    @csrf
+                                                    {{ method_field('DELETE') }}
+                                                    <input type="hidden" name="id" value="{{ $order->id }}">
+                                                    <button type="submit" class="btn btn-danger remove-icon">
+                                                        Удалить ×
+                                                    </button>
+                                                </form>
+                                            @elseif($order->status == 1 || $order->status == 2)
+                                                <span class="badge badge-secondary remove-icon">Не выполнен</span>
+                                            @else
+                                                <span class="badge badge-success remove-icon">Выполнен</span>
+                                            @endif
                                             <p>
                                                 <b>Ставка:</b> {{ $order->price }} <br>
                                             </p>
@@ -115,12 +128,12 @@
                                                 <b>Город:</b> {{ $order->city->name }} <br>
                                             </p>
                                             @if($order->status == 1)
-                                                <a href="#" class="btn btn-success mb-3" data-toggle="modal" data-target="#getExecutor" data-id="{{ $order->getOrderComplete->user_id }}">Посмотреть исполнителя</a>
+                                                <a href="#" class="btn btn-success mb-3" data-toggle="modal" data-target="#getExecutor" data-id="{{ $order->getOrderComplete->user_id }}" data-order-id="{{ $order->id }}">Посмотреть исполнителя</a>
                                             @endif
                                         </div>
-                                    @endforeach
-                                @endisset
-                            </div>
+                                    </div>
+                                @endforeach
+                            @endisset
                         </div>
                     </div>
                 </div>

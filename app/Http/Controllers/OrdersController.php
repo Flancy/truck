@@ -101,6 +101,16 @@ class OrdersController extends Controller
         return redirect()->action('DashboardController@settingShow');
     }
 
+    public function changeStatusComplete($id, $status)
+    {
+        $order = Orders::findOrFail($id);
+
+        $order->status = $status;
+        $order->save();
+
+        return redirect()->action('DashboardController@settingShow');
+    }
+
     /**
      * Update the specified resource in storage.
      *

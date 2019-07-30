@@ -36,7 +36,7 @@ class DashboardController extends Controller
         $user = User::findOrFail($id);
 
         $cars = Auto::all();
-        $orders = Orders::all();
+        $orders = Orders::orderBy('id', 'DESC')->get();
 
         $ordersUser = OrdersComplete::where('user_id', $id)->get();
 

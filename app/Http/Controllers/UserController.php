@@ -52,7 +52,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         $cars = Auto::all();
-        $reviews = Reviews::all();
+        $reviews = Reviews::where('user_id', $id)->get();
 
         $carsAuthUser = array();
         $reviewsAuthUser = array();

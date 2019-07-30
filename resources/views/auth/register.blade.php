@@ -26,6 +26,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Телефон') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                             <div class="col-md-6">
@@ -67,10 +81,10 @@
                             <div class="col-md-6">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <label class="btn btn-success active">
-                                        <input type="radio" name="isExecutor" id="isExecutor1" autocomplete="off" checked value="1"> Исполнитель
+                                        <input type="radio" name="isExecutor" id="isExecutor1" autocomplete="off" checked value="0"> Исполнитель
                                     </label>
                                     <label class="btn btn-success">
-                                        <input type="radio" name="isExecutor" id="isExecutor2" autocomplete="off" value="0"> Заказчик
+                                        <input type="radio" name="isExecutor" id="isExecutor2" autocomplete="off" value="1"> Заказчик
                                     </label>
                                     <label class="btn btn-success">
                                         <input type="radio" name="isExecutor" id="isExecutor3" autocomplete="off" value="2"> Диспетчер

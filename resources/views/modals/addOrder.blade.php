@@ -41,7 +41,7 @@
                         <textarea name="description" class="form-control" style="height: 200px"></textarea>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                     <button type="submit" class="btn btn-success">Добавить</button>
                 </div>

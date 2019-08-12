@@ -7,6 +7,8 @@ use Auth;
 use App\User;
 use App\Auto;
 use App\Reviews;
+use App\Orders;
+use App\OrdersComplete;
 
 class UserController extends Controller
 {
@@ -54,6 +56,19 @@ class UserController extends Controller
         $cars = Auto::all();
         $reviews = Reviews::where('user_id', $id)->get();
 
+        if($user->isExecutor == 0) {
+            $orders = OrdersComplete::where('user_id', $id)->get();
+            $ordersComplete = [];
+
+            foreach ($orders as $order) {
+                array_push($ordersComplete, $order->order_id);
+            }
+
+            $orders = Orders::where('id', $ordersComplete)->where('status', '3')->get()->count();
+        } else if($user->isExecutor == 1) {
+            $orders = Orders::where('user_id', $id)->where('status', '3')->get()->count();
+        }
+
         $carsAuthUser = array();
         $reviewsAuthUser = array();
 
@@ -69,7 +84,7 @@ class UserController extends Controller
             }
         }
 
-        return view('user.show')->with(['user' => $user, 'cars' => $carsAuthUser, 'reviews' => $reviews]);
+        return view('user.show')->with(['user' => $user, 'cars' => $carsAuthUser, 'reviews' => $reviews, 'ordersComplete' => $orders]);
     }
 
     /**

@@ -9,6 +9,7 @@
 	    @isset($cities)
 		    <div class="col">
 		    	<select class="custom-select" name="city_id">
+					<option value="1" selected="selected">Выберите свой город</option>
 					@foreach($cities as $city)
 						<option value="{{ $city->id }}" {{ $city_id == $city->id ? 'selected' : '' }}>{{ $city->name }}</option>
 					@endforeach
@@ -18,13 +19,14 @@
 	    @isset($autocategories)
 		    <div class="col">
 		    	<select class="custom-select" name="autocategories_id">
+					<option value="1" selected="selected">Категория транспорта</option>
 					@foreach($autocategories as $category)
 						<option value="{{ $category->id }}" {{ $autocategories_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
 					@endforeach
 				</select>
 		    </div>
 		@endisset
-	    <div class="col">
+	    <div class="col-sm-2">
 	    	<button class="btn btn-success" type="submit">Найти</button>
 	    </div>
 	</form>

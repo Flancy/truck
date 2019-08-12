@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('elements.nav')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -29,10 +30,12 @@
                                         @endisset
                                     </div>
                                 </div>
+
+                                <h5>Количество успешных заказов: <b>{{ $ordersComplete }}</b></h5>
                             @elseif($user->isExecutor == 2)
 
                             @else
-
+                                <h5>Количество успешных заказов: <b>{{ $ordersComplete }}</b></h5>
                             @endif
                         </div>
 					</div>

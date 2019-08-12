@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('elements.nav')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -61,7 +62,7 @@
             <div class="col-md-12">
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h4>Взятые заказы:</h4>
+                        <h4>Ваши заказы:</h4>
                         <div class="cars ordersProcess mt-4">
                             @isset($ordersUser)
                                 @foreach($ordersUser as $orderUser)

@@ -1,5 +1,45 @@
 @import "css/bootstrapCarousel.css"
 
+body
+	font-family "Montserrat"
+	font-weight normal
+
+//Navbar
+.bg-white
+	padding-top 32px
+	padding-bottom 32px
+.welcome
+	.bg-white
+		background-color rgba(255,255,255,0.1) !important
+		padding-top 32px
+		padding-bottom 32px
+
+.navbar-light .navbar-nav .nav-link
+	text-transform uppercase
+	font-size 12px
+	&:hover,
+	&:active
+		text-decoration underline
+.welcome
+	.navbar-light .navbar-nav .nav-link
+		color #fff
+		text-transform uppercase
+		font-size 12px
+		&:hover,
+		&:active
+			text-decoration underline
+			color #fff
+.navbar-light .btn-success
+	margin-right 30px
+	color #fff
+
+//Buttons
+.btn-success,
+.btn-primary
+	background-color #2762c3
+	border-color #2762c3
+	color #fff !important
+
 //Welcome
 .card-body_autocategory
 	button 
@@ -11,6 +51,54 @@
 		&:hover, &:active
 			h5
 				text-decoration underline
+.welcome
+	background-image url('/img/bg-home.jpg')
+	background-size cover
+	background-repeat no-repeat
+	background-position center center
+	.container-welcome
+		padding-top 100px
+		padding-bottom 180px
+	h1
+		text-transform uppercase
+		margin-bottom 60px
+		color #fff 
+		font-size 40px
+		font-family "Montserrat"
+		font-weight 900
+	h3
+		text-transform uppercase
+		margin-bottom 60px
+		color #fff 
+		font-size 30px
+		font-family "Montserrat"
+		font-weight 900
+.search
+	padding 0 !important
+	font-size 0
+	border none !important
+	overflow hidden
+	height 70px
+	.col,
+	.col-sm-2 
+		margin-top -3px
+		padding-left 0
+		padding-right 0
+		&:nth-child(1)
+			border-right 1px solid #acacac
+		&:nth-child(2)
+			border-right 1px solid #acacac
+		&:nth-child(3)
+			width 20%
+	.custom-select
+		border 0 !important
+		height 70px
+		padding-top 25px
+		padding-bottom 25px
+	.btn-success
+		height 100%
+		padding-top 25px
+		padding-bottom 25px
 
 //Dashboard
 .setting-info
@@ -41,6 +129,7 @@
 //Search
 .search 
 	width 100%
+	box-shadow 0 0 14px rgba(0,0,0,0.2)
 	.btn 
 		width 100%
 	.row

@@ -1,14 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="welcome mb-3">
+	@include('elements.nav')
+	<div class="container container-welcome">
+	    <div class="row justify-content-center">
+	        <div class="col-md-12">
+	        	<h1 class="text-center">Быстрый поиск спецтехники TruckService</h1>
+	        	<h3 class="text-center">Более 10 000 исполнителей ожидают вас!</h3>
+
+				@include('elements.search')
+
+			</div>
+		</div>
+	</div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-        	<h1 class="text-center">Быстрый поиск спецтехники по России и странам СНГ</h1>
-        	<h3 class="text-center">Более 10 000 исполнителей ожидают вас!</h3>
-
-			@include('elements.search')
-
             <div class="card">
                 <div class="card-header text-center"><b>Любые виды спецтехники и не только!</b></div>
 

@@ -441,3 +441,32 @@ textarea {
   display: inline-block;
   width: 80%;
 }
+.who {
+  background-image: url("/img/bg-who.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.who .bg-white {
+  background-color: transparent !important;
+  border: none;
+  box-shadow: none !important;
+}
+.who .navbar-light .navbar-nav .nav-link {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.who .navbar-light .navbar-nav .nav-link:hover,
+.who .navbar-light .navbar-nav .nav-link:active {
+  text-decoration: underline;
+  color: #fff;
+}
+.who h1 {
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 40px;
+}

@@ -216,10 +216,23 @@ textarea {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  position: relative;
+  overflow: hidden;
+}
+.welcome .fullscreen-bg__video {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 .welcome .container-welcome {
   padding-top: 100px;
   padding-bottom: 180px;
+  z-index: 100;
+  position: relative;
 }
 .welcome h1 {
   text-transform: uppercase;

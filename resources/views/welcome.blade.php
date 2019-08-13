@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="welcome mb-3">
+	<video loop muted autoplay class="fullscreen-bg__video">
+		<source src="{{ url('/video/home.mp4') }}" type="video/mp4">>
+	</video>
 	@include('elements.nav')
 	<div class="container container-welcome">
 	    <div class="row justify-content-center">

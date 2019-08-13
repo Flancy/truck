@@ -52,21 +52,24 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
+        $countOrders = 0;
 
         $cars = Auto::all();
         $reviews = Reviews::where('user_id', $id)->get();
 
         if($user->isExecutor == 0) {
             $orders = OrdersComplete::where('user_id', $id)->get();
-            $ordersComplete = [];
+            if($orders->count() != 0) {
+                $ordersComplete = [];
 
-            foreach ($orders as $order) {
-                array_push($ordersComplete, $order->order_id);
+                foreach ($orders as $order) {
+                    array_push($ordersComplete, $order->order_id);
+                }
+
+                $countOrders = Orders::where('id', $ordersComplete)->where('status', '3')->get()->count();
             }
-
-            $orders = Orders::where('id', $ordersComplete)->where('status', '3')->get()->count();
         } else if($user->isExecutor == 1) {
-            $orders = Orders::where('user_id', $id)->where('status', '3')->get()->count();
+            $countOrders = Orders::where('user_id', $id)->where('status', '3')->get()->count();
         }
 
         $carsAuthUser = array();
@@ -84,7 +87,7 @@ class UserController extends Controller
             }
         }
 
-        return view('user.show')->with(['user' => $user, 'cars' => $carsAuthUser, 'reviews' => $reviews, 'ordersComplete' => $orders]);
+        return view('user.show')->with(['user' => $user, 'cars' => $carsAuthUser, 'reviews' => $reviews, 'ordersComplete' => $countOrders]);
     }
 
     /**

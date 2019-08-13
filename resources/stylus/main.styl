@@ -3,12 +3,17 @@
 body
 	font-family "Montserrat"
 	font-weight normal
+textarea
+	resize none
+.btn
+	font-weight 300
 
 //Navbar
 .bg-white
 	padding-top 32px
 	padding-bottom 32px
-.welcome
+.welcome,
+.operator
 	.bg-white
 		background-color rgba(255,255,255,0.1) !important
 		padding-top 32px
@@ -32,6 +37,8 @@ body
 .navbar-light .btn-success
 	margin-right 30px
 	color #fff
+	padding-left 20px
+	padding-right 20px
 
 //Buttons
 .btn-success,
@@ -64,14 +71,12 @@ body
 		margin-bottom 60px
 		color #fff 
 		font-size 40px
-		font-family "Montserrat"
 		font-weight 900
 	h3
 		text-transform uppercase
 		margin-bottom 60px
 		color #fff 
 		font-size 30px
-		font-family "Montserrat"
 		font-weight 900
 .search
 	padding 0 !important
@@ -135,3 +140,114 @@ body
 	.row
 		margin-left 0
 		margin-right 0
+		
+//Operator
+.operator
+	padding-bottom 30px
+	background-image url('/img/bg-call.jpg')
+	background-size cover
+	background-repeat no-repeat
+	background-position center center
+	.bg-white
+		background-color rgba(0,0,0,0.2) !important
+	.navbar-light .navbar-nav .nav-link
+		color #fff
+		text-transform uppercase
+		font-size 12px
+		&:hover,
+		&:active
+			text-decoration underline
+			color #fff
+	.navbar-light .btn-success
+		margin-right 30px
+		padding-left 20px
+		padding-right 20px
+	.btn-success
+		padding-left 40px
+		padding-right 40px
+		background-color #ff9000
+		color #fff
+		border-color #ff9000
+	h1
+		margin-top 40px
+		text-transform uppercase
+		color #fff 
+		font-size 70px
+		font-weight 900
+	h3
+		text-transform uppercase
+		margin-bottom 60px
+		color #fff 
+		font-size 45px
+		font-weight 300
+.operator-auto
+	padding-top 40px
+	padding-bottom 40px
+	h1
+		text-align left !important
+		color #26a7e9 
+		font-size 54px
+		font-weight 600
+		line-height 1.1
+	.text
+		font-size 20px
+		color #000000 
+		font-weight 300
+		line-height 1
+	.row 
+		align-items center
+	img 
+		margin-bottom 0
+.btn-operator
+	margin-top 20px
+	border 2px solid #26a7e9
+	color #26a7e9
+	&:hover,
+	&:active
+		background-color #26a7e9
+		color #fff
+.operator-form
+	background-color #028fa8
+	padding-top 25px
+	padding-bottom 25px
+	.wrap
+		display inline-block
+		max-width 90%
+		img
+			display inline-block
+	h1
+		font-size 50px
+		margin-top 20px
+		color #fff 
+		margin-bottom 35px
+		font-weight 300
+		line-height 1
+		text-align left
+	h3
+		font-size 30px
+		color #fff 
+		margin-bottom 30px
+		font-weight 300
+		text-align left
+	.form-wrap
+		box-shadow 0 3px 12px rgba(0,0,0,0.2)
+		.form-head
+			background-color #26a7e9
+			padding-top 15px
+			padding-bottom 15px
+			position relative
+			text-align center
+		.img-feedback
+			display inline-block
+		.img-triangle
+			width 20px
+			position absolute
+			bottom -15px
+			left 50%
+			margin-left -10px
+		.form-body
+			background-color #ffffff
+			padding 35px 60px 
+		.btn-operator
+			display inline-block
+			width 80%

@@ -1,90 +1,96 @@
 @extends('layouts.app')
 
 @section('content')
-@include('elements.nav')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-5">
-        	<img src="{{ url('/img/call.jpg') }}" class="img-fluid">
-        </div>
-        <div class="col-md-7">
-        	<h1>Лучшее решение</h1>
-        	<h3>Для диспетчера</h3>
+<div class="operator">
+	@include('elements.nav')
+	<div class="container">
+	    <div class="row justify-content-center">
+	        <div class="col-md-9">
+	        	<h1>Лучшее решение</h1>
+	        	<h3>Для диспетчера</h3>
 
-			<p>
-        		Представляем Вашему вниманию самый полезный сервис для автоматизации работы диспетчера! Когда необходимо получить заявку на перевозку или оперативно найти водителя, нам приходится производить массу звонков, перебирать огромное количество различных источников. Это весьма трудоёмкий процесс.
-        	</p>
-        	<p>
-        		Наша команда, постаралась максимально облегчить работу диспетчера! Работа диспетчера с нашим сервисом станет комфортной, удобной и, главное, продуктивной!
-        	</p>
-
-        	<a href="{{ route('register') }}" class="btn btn-success">Создать профиль диспетчера</a>
-        </div>
-    </div>
-
+	        	<a href="{{ route('register') }}" class="btn btn-success">Создать профиль диспетчера</a>
+	        </div>
+	        <div class="col-md-3 text-right">
+	        	<img src="{{ url('/img/iphone.png') }}" class="img-fluid">
+	        </div>
+	    </div>
+	</div>
+</div>
+<div class="container operator-auto">
     <div class="row justify-content-center" style="margin-top: 40px">
         <div class="col-md-12">
-        	<h1 class="text-center">Преимущества сервиса</h1>
-        	<h3 class="text-center">Сервис «Truck List» подобрал для Вас самые актуальные предложения в сфере поиска спецтехники!</h3>
+        	<h1 class="text-center">Автоматизация работы <br>диспетчера</h1>
 
 			<div class="row">
-				<div class="col-sm-4 card">
-					<h3>Быстрый поиск</h3>
-					<p>
-						Задайте нужные параметры и Вам останется только подобрать для себя подходящую спецтехнику и выгодную цену
+				<div class="col-md-8">
+					<p class="text">
+						Когда необходимо получить заявку на перевозку или оперативно найти водителя, нам приходится производить массу звонков, перебирать огромное количество различных источников. Это весьма трудоёмкий процесс.
 					</p>
 				</div>
-				<div class="col-sm-4 card">
-					<h3>Надежность</h3>
-					<p>
-						Владельцы сами размещают объявления, что является гарантом актуальности предоставляемой информации.
+				<div class="col-md-4 text-center">
+					<img src="{{ url('/img/call/text-1.png') }}" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 text-center">
+					<img src="{{ url('/img/call/text-2.png') }}" alt="" class="img-fluid">
+				</div>
+				<div class="col-md-8">
+					<p class="text">
+						Наша команда, постаралась максимально облегчить работу диспетчера! Работа диспетчера с нашим сервисом станет комфортной, удобной и, главное продуктивной!
 					</p>
 				</div>
-				<div class="col-sm-4 card">
-					<h3>Активная поддержка</h3>
-					<p>
-						24 часа в сутки у нас работает служба поддержки. Вы задаёте вопрос - мы оперативно даём обратную связь
-					</p>
-				</div>
-				<div class="col-sm-4 card">
-					<h3>Удобный интерфейс</h3>
-					<p>
-						С помощью геолокации вы всегда можете найти ближайший к вам транспорт, сэкономив, тем самым, время и деньги.
-					</p>
-				</div>
-				<div class="col-sm-4 card">
-					<h3>Проверенные исполнители</h3>
-					<p>
-						Мы работаем только с проверенными лицами
-					</p>
-				</div>
-				<div class="col-sm-4 card">
-					<h3>Защита данных</h3>
-					<p>
-						Вся информация защищена от третьих лиц. Вы можете быть уверены в сохранности конфиденциальной информации
-					</p>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<a href="{{ route('register') }}" class="btn btn-operator">Создать профиль диспетчера</a>
 				</div>
 			</div>
         </div>
     </div>
+</div>
+<div class="operator-form">
+	<div class="container">
+	    <div class="row justify-content-center">
+	        <div class="col-md-6 text-center">
+	        	<div class="wrap">
+		        	<h1>Есть вопросы?</h1>
+		        	<h3>Заполни форму и мы с <br>радостью вам поможем!</h3>
 
-
-    <div class="row justify-content-center">
-        <div class="col-md-6" style="margin-top: 40px">
-        	<img src="{{ url('/img/call_1.jpg') }}" class="img-fluid">
-        </div>
-        <div class="col-md-6" style="margin-top: 40px">
-        	<h3>Презентация работы сервиса</h3>
-			<p>
-        		Для того, чтобы начать использовать все функции сайта "Truck List", Вам необходимо создать личный кабинет. Как только вы зарегистрируетесь и введёте необходимые данные у Вас появится "профиль диспетчера". А вместе с ним у Вас появятся персональные возможности:
-        	</p>
-        	<p>
-        		Собственный список исполнителей, возможны различные сортировки по виду транспорта и т.д.
-        	</p>
-        	<p>
-        		Размещение заявок на перевозку. Есть возможность единовременного оповещения, вашего списка исполнителей об имеющейся заявке.
-        	</p>
-        </div>
-    </div>
+		        	<img src="{{ url('/img/call/question.png') }}" alt="" class="img-fluid">
+		        </div>
+	        </div>
+	        <div class="col-md-6">
+	        	<div class="form-wrap">
+	        		<div class="form-head">
+	        			<img src="{{ url('/img/call/feedback.png') }}" alt="" class="img-fluid img-feedback">
+	        			<img src="{{ url('/img/call/triangle.png') }}" alt="" class="img-triangle">
+	        		</div>
+	        		<div class="form-body">
+	        			<form>
+			                <div class="form-row">
+			                    <div class="col-md-12 mb-3">
+			                        <input type="text" class="form-control" placeholder="Имя:" required>
+			                    </div>
+			                    <div class="col-md-12 mb-3">
+			                        <input type="email" class="form-control" placeholder="E-mail:" required>
+			                    </div>
+			                    <div class="col-md-12 mb-3">
+			                        <textarea class="form-control" name="question" placeholder="Вопрос" style="height: 300px"></textarea>
+			                    </div>
+			                </div>
+			                <div class="form-row text-center">
+			                	<div class="col-md-12">
+			                		<button class="btn btn-operator" type="submit">Отправить</button>
+			                	</div>
+			                </div>
+			            </form>
+	        		</div>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
 </div>
 @endsection

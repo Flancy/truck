@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="welcome mb-3">
+<div class="welcome">
 	<video loop muted autoplay class="fullscreen-bg__video">
 		<source src="{{ url('/video/home.mp4') }}" type="video/mp4">>
 	</video>
@@ -18,14 +18,15 @@
 		</div>
 	</div>
 </div>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header text-center"><b>Любые виды спецтехники и не только!</b></div>
-
-                <div class="card-body card-body_autocategory text-center">
-                	<div id="carouselAutoCategories" class="carousel slide" data-ride="carousel">
+<div class="welcome-slider">
+	<div class="container">
+	    <div class="row justify-content-center">
+	    	<div class="col-md-12">
+	    		<h1>Выберите нужный вид спецтехники</h1>
+	    	</div>
+	        <div class="col-md-12">
+	            <div class="card-body_autocategory text-center">
+	            	<div id="carouselAutoCategories" class="carousel slide" data-ride="carousel">
 			            <div class="carousel-inner row w-100 mx-auto" role="listbox">
 			            	@foreach($autocategories as $category)
 				        		@if($loop->index == 0)
@@ -38,7 +39,9 @@
 		                				<input type="hidden" name="city_id" value="0">
 		                				<input type="hidden" name="autocategories_id" value="{{ $category->id }}">
 		                				<button type="submit">
-											<img src="{{ url($category->image) }}" class="card-img-top" alt="{{ $category->name }}">
+		                					<div class="card-img-wrap">
+												<img src="{{ url($category->image) }}" class="card-img-top" alt="{{ $category->name }}">
+											</div>
 											<h5 class="card-title">{{ $category->name }}</h5>
 										</button>
 									</form>
@@ -54,9 +57,36 @@
 			                <span class="sr-only">Next</span>
 			            </a>
 			        </div>
-                </div>
-            </div>
-
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+<div class="welcome-counter">
+	<div class="container">
+	    <div class="row justify-content-center">
+	    	<div class="col-md-3">
+	    		<h3>10327</h3>
+	    		<p class="text">Исполнителей</p>
+	    	</div>
+	    	<div class="col-md-3">
+	    		<h3>32</h3>
+	    		<p class="text">Города</p>
+	    	</div>
+	    	<div class="col-md-3">
+	    		<h3>7482</h3>
+	    		<p class="text">Заказчиков</p>
+	    	</div>
+	    	<div class="col-md-3">
+	    		<h3>1240</h3>
+	    		<p class="text">Диспетчеров</p>
+	    	</div>
+	    </div>
+	</div>
+</div>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-12">
             <div class="card mt-4">
                 <div class="card-header text-center">
                 	<b>Новые исполнители</b><br>
@@ -91,7 +121,7 @@
 
             <div class="card mt-4">
                 <div class="card-header text-center">
-                	<b>Новые заказы</b><br>
+                	<b>Новые заявки</b><br>
                 </div>
 
                 <div class="card-body">

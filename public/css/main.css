@@ -284,6 +284,72 @@ textarea {
   padding-top: 25px;
   padding-bottom: 25px;
 }
+.welcome-slider {
+  background-color: #ebf3fe;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.welcome-slider h1 {
+  font-size: 40px;
+  color: #000;
+  font-weight: normal;
+  margin-bottom: 80px;
+  text-align: center;
+}
+.welcome-slider .card-img-wrap {
+  border-radius: 6px;
+  margin-bottom: 10px;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 145px;
+  line-height: 145px;
+  transition: all 0.3s ease-in-out;
+}
+.welcome-slider .card-img-wrap img {
+  width: 120px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.welcome-slider .card-img-wrap:hover,
+.welcome-slider .card-img-wrap:active {
+  background-color: #fff;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+}
+.welcome-slider .card-img-wrap .card-title {
+  font-size: 17px;
+  color: #000;
+  text-align: center;
+}
+.welcome-slider .carousel-item.active .card-img-wrap {
+  background-color: #fff;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+}
+.welcome-slider .carousel-control-prev {
+  left: -70px;
+}
+.welcome-slider .carousel-control-next {
+  right: -70px;
+}
+.welcome-counter {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  background-color: #ebf3fe;
+  text-align: center;
+}
+.welcome-counter h3 {
+  line-height: 1;
+  font-weight: 900;
+  font-size: 70px;
+  color: #000;
+}
+.welcome-counter .text {
+  line-height: 1;
+  margin-top: 0;
+  font-weight: normal;
+  font-size: 30px;
+  color: #000;
+}
 .setting-info {
   text-align: left;
 }

@@ -19,6 +19,10 @@
                         <input type="number" name="weight" class="form-control" id="weightAuto" placeholder="Вес:">
                     </div>
                     <div class="form-group">
+                        <label for="priceAuto">Ставка:</label>
+                        <input type="number" name="price" class="form-control" id="priceAuto" placeholder="Ставка:">
+                    </div>
+                    <div class="form-group">
                         <label for="city_id">Город:</label>
                         @isset($cities)
                             <select class="custom-select" name="city_id" id="city_id">

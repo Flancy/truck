@@ -84,18 +84,17 @@
 	    </div>
 	</div>
 </div>
-<div class="container">
+<div class="container executor">
 	<div class="row justify-content-center">
 		<div class="col-md-12">
             <div class="card mt-4">
                 <div class="card-header text-center">
-                	<b>Новые исполнители</b><br>
-                	исполнители которые недавно зарегистрировались
+                	<h2 class="h2"><span>Лучшие исполнители</span></h2>
                 </div>
 
                 <div class="card-body text-center">
                 	<div class="row">
-                		@isset($users)
+                		<!--@isset($users)
 		                	@foreach($users as $user)
 		                		@if($user->isExecutor == 0)
 			                		<div class="col-sm-6 mb-2">
@@ -114,19 +113,79 @@
 									</div>
 								@endif
 		                	@endforeach
-						@endisset
+						@endisset-->
+						<div class="col-sm-6 mb-2">
+							<div class="card card-item">
+								<div class="row">
+									<div class="col-sm-5 card-left">
+										<img src="{{ url($user->avatar) }}" class="card-img-top" alt="{{ $user->name }}">
+										<p class="text-name">Андрей</p>
+									</div>
+									<div class="col-sm-7 card-right">
+										<h5 class="text-center">Эвакуатор</h5>
+
+										<div class="list-group">
+											<div class="list-group-item list-group-item-action">
+												<p class="text float-left">Грузоподъемность:</p>
+												<p class="text float-right"><b>2.5</b></p>
+											</div>
+											<div class="list-group-item list-group-item-action">
+												<p class="text float-left">Выполнено заказов:</p>
+												<p class="text float-right"><b>24</b></p>
+											</div>
+											<div class="list-group-item list-group-item-action">
+												<p class="text float-left">Ставка:</p>
+												<p class="text float-right"><b>500</b></p>
+											</div>
+										</div>
+
+										<a href="#" class="btn btn-success float-right">Заказать</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 mb-2">
+							<div class="card card-item">
+								<div class="row">
+									<div class="col-sm-5 card-left">
+										<img src="{{ url($user->avatar) }}" class="card-img-top" alt="{{ $user->name }}">
+										<p class="text-name">Андрей</p>
+									</div>
+									<div class="col-sm-7 card-right">
+										<h5 class="text-center">Эвакуатор</h5>
+
+										<div class="list-group">
+											<div class="list-group-item list-group-item-action">
+												<p class="text float-left">Грузоподъемность:</p>
+												<p class="text float-right"><b>2.5</b></p>
+											</div>
+											<div class="list-group-item list-group-item-action">
+												<p class="text float-left">Выполнено заказов:</p>
+												<p class="text float-right"><b>24</b></p>
+											</div>
+											<div class="list-group-item list-group-item-action">
+												<p class="text float-left">Ставка:</p>
+												<p class="text float-right"><b>500</b></p>
+											</div>
+										</div>
+
+										<a href="#" class="btn btn-success float-right">Заказать</a>
+									</div>
+								</div>
+							</div>
+						</div>
 	                </div>
                 </div>
             </div>
 
             <div class="card mt-4">
                 <div class="card-header text-center">
-                	<b>Новые заявки</b><br>
+                	<h2 class="h2"><span>Новые заявки</span></h2>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body text-center">
                 	<div class="row p-4">
-                		@isset($orders)
+                		<!--@isset($orders)
 		                	@foreach($orders as $order)
 		                		@if($order->status == 0)
 			                		<div class="card mb-3 col-sm-4 pt-2">
@@ -149,11 +208,71 @@
 		                            </div>
 		                        @endif
 		                	@endforeach
-						@endisset
+						@endisset-->
+						<div class="col-sm-6 mb-2">
+							<div class="card card-item">
+								<div class="row">
+									<div class="col-sm-5 card-left">
+										<img src="{{ url($user->avatar) }}" class="card-img-top" alt="{{ $user->name }}">
+									</div>
+									<div class="col-sm-7 card-right">
+										<h5 class="text-center">Эвакуатор</h5>
+
+										<div class="list-group">
+											<div class="list-group-item list-group-item-action">
+												<p class="text float-left">Перевезти из точки А в точку Б</p>
+											</div>
+											<div class="list-group-item list-group-item-action">
+												<p class="text float-left">Время:</p>
+												<p class="text float-right"><b>04.02.19 12:56</b></p>
+											</div>
+											<div class="list-group-item list-group-item-action">
+												<p class="text float-left">Ставка:</p>
+												<p class="text float-right"><b>3000</b></p>
+											</div>
+										</div>
+
+										<a href="#" class="btn btn-success float-right">Ответить</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 mb-2">
+							<div class="card card-item">
+								<div class="row">
+									<div class="col-sm-5 card-left">
+										<img src="{{ url($user->avatar) }}" class="card-img-top" alt="{{ $user->name }}">
+									</div>
+									<div class="col-sm-7 card-right">
+										<h5 class="text-center">Грузовые</h5>
+
+										<div class="list-group">
+											<div class="list-group-item list-group-item-action">
+												<p class="text float-left">Перевезти из точки А в точку Б</p>
+											</div>
+											<div class="list-group-item list-group-item-action">
+												<p class="text float-left">Время:</p>
+												<p class="text float-right"><b>04.02.19 12:56</b></p>
+											</div>
+											<div class="list-group-item list-group-item-action">
+												<p class="text float-left">Ставка:</p>
+												<p class="text float-right"><b>3000</b></p>
+											</div>
+										</div>
+
+										<a href="#" class="btn btn-success float-right">Ответить</a>
+									</div>
+								</div>
+							</div>
+						</div>
 	                </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="row justify-content-center">
+    	<a href="#" class="btn btn-transparent">Посмотреть все заявки</a>
     </div>
 </div>
 @endsection

@@ -3,6 +3,7 @@
 body
 	font-family "Montserrat"
 	font-weight normal
+	background-color #fff
 textarea
 	resize none
 .btn
@@ -178,6 +179,124 @@ textarea
 		font-weight normal
 		font-size 30px
 		color #000000
+.executor
+	background-color #fff
+	padding-top 50px
+	.card
+		border none
+	.card-header
+		padding 0
+		border-bottom none
+		background-color transparent
+	.card-body
+		padding 0
+	.h2
+		position relative
+		margin-bottom 70px
+		line-height 1
+		font-weight 300
+		font-size 30px
+		color #000000
+		z-index 10
+		span
+			position relative
+			z-index 10
+		&:after
+			content ''
+			display block
+			position absolute
+			top 15px
+			left 0
+			width 100%
+			height 25px
+			border-radius 4px
+			background-color #ebf3fe
+			z-index 5
+	.col-sm-6:nth-child(odd),
+	.col-sm-4:nth-child(odd)
+		padding-right 15px
+	.col-sm-6:nth-child(even),
+	.col-sm-4:nth-child(even)
+		padding-right 15px
+	.card-item
+		border-radius 0
+		border-top-left-radius 14px
+		border-bottom-left-radius 14px
+		overflow hidden
+		box-shadow 0 0 8px rgba(0,0,0,0.2)
+		.row 
+			margin-left 0
+			margin-right 0
+		.card-left
+			position relative
+			padding 0
+			border 2px solid #00b9ff
+			border-top-left-radius 14px
+			overflow hidden
+			border-bottom-left-radius 14px
+			text-align center
+			img
+				display inline-block
+				min-height 100%
+				min-width 100%
+			.text-name
+				margin-bottom 0
+				font-size 18px 
+				line-height 1
+				position absolute
+				bottom 0
+				left 0
+				width 100%
+				padding 7px 0
+		.card-right
+			padding 8px 0
+			border 2px solid #fff
+			border-left none
+			border-right none
+			.text 
+				margin-bottom 0
+				line-height 1
+				font-weight 300
+				b 
+					font-weight 500
+			.list-group-item
+				padding-top 25px
+				padding-bottom 8px
+				padding 25px 10px 8px 10px
+				border-radius 0 !important
+				&:nth-child(1)
+					border-top none
+			.text-center
+				font-size 25px
+				font-weight 900
+				line-height 1
+				margin-bottom 0
+		.btn 
+			margin-top 10px
+			border none
+			border-radius 6px
+			margin-right 10px
+			padding-left 40px
+			padding-right 40px
+			padding 4px 40px
+			background-color #00b9ff
+			font-size 18px
+			line-height 1
+			font-weight 300
+			&:hover, &:active
+				background-color #2762c3
+	.btn-transparent
+		padding 15px 70px
+		margin-top 40px
+		border 2px solid #2762c2
+		border-radius 4px
+		color #2762c2
+		font-weight 300
+		font-size 16px
+		background-color transparent
+		&:hover, &:active
+			background-color #2762c2
+			color #ffffff
 //Dashboard
 .setting-info
 	text-align left

@@ -18,6 +18,7 @@ class CreateAutoTable extends Migration
             $table->string('name');
             $table->string('image');
             $table->string('weight');
+            $table->string('price');
             $table->bigInteger('user_id')->unsigned();
             $table->unsignedBigInteger('city_id')->nullable();
             $table->foreign('city_id')->references('id')->on('city')->onDelete('cascade');

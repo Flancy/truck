@@ -17,6 +17,7 @@ class AutoTableSeeder extends Seeder
             'name' => 'Mitsubishi',
             'image' => 'storage/auto/1.jpg',
             'weight' => 'до 20',
+            'price' => '1200',
             'city_id' => 1,
             'user_id' => 1,
             'autocategories_id' => 4,

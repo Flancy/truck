@@ -47,7 +47,9 @@
                                     @foreach($cars as $car)
                                         <div class="col-sm-4">
                                             <p>
-                                                <b>Автомобиль:</b> {{ $car->name }} <br>
+                                                <b>Автомобиль:</b> {{ $car->name }}; <br>
+                                                <b>Грузоподъемность:</b> {{ $car->weight }} тон;<br>
+                                                <b>Ставка:</b> {{ $car->price }} тон;<br>
                                                 <img src="{{ url($car->image) }}" alt="" class="setting-auto">
                                             </p>
                                         </div>

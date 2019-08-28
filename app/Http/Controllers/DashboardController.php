@@ -72,6 +72,7 @@ class DashboardController extends Controller
 
             $car->name = $request->name;
             $car->weight = $request->weight;
+            $car->price = $request->price;
             $car->user_id = $userId;
             $car->city_id = $request->city_id;
             $car->autocategories_id = $request->autocategories_id;

@@ -9,7 +9,7 @@ class Auto extends Model
     protected $table = 'auto';
 
     protected $fillable = [
-        'name', 'weight', 'user_id', 'city_id', 'autocategories_id',
+        'name', 'weight', 'price', 'user_id', 'city_id', 'autocategories_id',
     ];
 
     public function user()

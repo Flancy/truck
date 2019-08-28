@@ -114,66 +114,40 @@
 								@endif
 		                	@endforeach
 						@endisset-->
-						<div class="col-sm-6 mb-2">
-							<div class="card card-item">
-								<div class="row">
-									<div class="col-sm-5 card-left">
-										<img src="{{ url($user->avatar) }}" class="card-img-top" alt="{{ $user->name }}">
-										<p class="text-name">Андрей</p>
-									</div>
-									<div class="col-sm-7 card-right">
-										<h5 class="text-center">Эвакуатор</h5>
-
-										<div class="list-group">
-											<div class="list-group-item list-group-item-action">
-												<p class="text float-left">Грузоподъемность:</p>
-												<p class="text float-right"><b>2.5</b></p>
-											</div>
-											<div class="list-group-item list-group-item-action">
-												<p class="text float-left">Выполнено заказов:</p>
-												<p class="text float-right"><b>24</b></p>
-											</div>
-											<div class="list-group-item list-group-item-action">
-												<p class="text float-left">Ставка:</p>
-												<p class="text float-right"><b>500</b></p>
-											</div>
+						@isset($cars)
+							@foreach($cars as $car)
+							<div class="col-sm-6 mb-2">
+								<div class="card card-item">
+									<div class="row">
+										<div class="col-sm-5 card-left">
+											<img src="{{ url($car->user->avatar) }}" class="card-img-top" alt="{{ $car->user->name }}">
+											<p class="text-name">{{ $car->user->name }}</p>
 										</div>
+										<div class="col-sm-7 card-right">
+											<h5 class="text-center">{{ $car->autoCategory->name }}</h5>
 
-										<a href="#" class="btn btn-success float-right">Заказать</a>
+											<div class="list-group">
+												<div class="list-group-item list-group-item-action">
+													<p class="text float-left">Грузоподъемность:</p>
+													<p class="text float-right"><b>{{ $car->weight }}</b></p>
+												</div>
+												<div class="list-group-item list-group-item-action">
+													<p class="text float-left">Выполнено заказов:</p>
+													<p class="text float-right"><b>{{ $car->user->orders->count() }}</b></p>
+												</div>
+												<div class="list-group-item list-group-item-action">
+													<p class="text float-left">{{ $car->price }}:</p>
+													<p class="text float-right"><b>500</b></p>
+												</div>
+											</div>
+
+											<a href="{{ url('/user/'.$car->user->id) }}" class="btn btn-success float-right">Заказать</a>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-sm-6 mb-2">
-							<div class="card card-item">
-								<div class="row">
-									<div class="col-sm-5 card-left">
-										<img src="{{ url($user->avatar) }}" class="card-img-top" alt="{{ $user->name }}">
-										<p class="text-name">Андрей</p>
-									</div>
-									<div class="col-sm-7 card-right">
-										<h5 class="text-center">Эвакуатор</h5>
-
-										<div class="list-group">
-											<div class="list-group-item list-group-item-action">
-												<p class="text float-left">Грузоподъемность:</p>
-												<p class="text float-right"><b>2.5</b></p>
-											</div>
-											<div class="list-group-item list-group-item-action">
-												<p class="text float-left">Выполнено заказов:</p>
-												<p class="text float-right"><b>24</b></p>
-											</div>
-											<div class="list-group-item list-group-item-action">
-												<p class="text float-left">Ставка:</p>
-												<p class="text float-right"><b>500</b></p>
-											</div>
-										</div>
-
-										<a href="#" class="btn btn-success float-right">Заказать</a>
-									</div>
-								</div>
-							</div>
-						</div>
+							@endforeach
+						@endisset
 	                </div>
                 </div>
             </div>
@@ -185,86 +159,42 @@
 
                 <div class="card-body text-center">
                 	<div class="row p-4">
-                		<!--@isset($orders)
-		                	@foreach($orders as $order)
+						@isset($orders)
+							@foreach($orders as $order)
 		                		@if($order->status == 0)
-			                		<div class="card mb-3 col-sm-4 pt-2">
-		                                <p>
-		                                    <b>Имя:</b> {{ $order->user->name }} <br>
-		                                </p>
-		                                <p>
-		                                    <b>Ставка:</b> {{ $order->price }} <br>
-		                                </p>
-		                                <p>
-		                                    <b>Описание:</b> {{ $order->description }} <br>
-		                                </p>
-		                                <p>
-		                                    <b>Город:</b> {{ $order->city->name }} <br>
-		                                </p>
-		                                
-		                                @if(!Auth::guest() && Auth::user()->isExecutor == 0)
-		                                    <a href="{{ route('order.show', ['id' => $order->id]) }}" class="btn btn-success mb-3">Отлкликнуться</a>
-		                                @endif
-		                            </div>
+								<div class="col-sm-6 mb-2">
+									<div class="card card-item">
+										<div class="row">
+											<div class="col-sm-5 card-left">
+												<img src="{{ url($user->avatar) }}" class="card-img-top" alt="{{ $user->name }}">
+											</div>
+											<div class="col-sm-7 card-right">
+												<h5 class="text-center">{{ $order->getAutoCategory->name }}</h5>
+
+												<div class="list-group">
+													<div class="list-group-item list-group-item-action">
+														<p class="text float-left">{{ $order->description }}</p>
+													</div>
+													<div class="list-group-item list-group-item-action">
+														<p class="text float-left">Время:</p>
+														<p class="text float-right"><b>{{\Carbon\Carbon::createFromTimeStamp(strtotime($order->created_at))->format('Y-m-d H:i:s')}}</b></p>
+													</div>
+													<div class="list-group-item list-group-item-action">
+														<p class="text float-left">Ставка:</p>
+														<p class="text float-right"><b>{{ $order->price }}</b></p>
+													</div>
+												</div>
+
+												@if(!Auth::guest() && Auth::user()->isExecutor == 0)
+													<a href="{{ route('order.show', ['id' => $order->id]) }}" class="btn btn-success float-right">Ответить</a>
+												@endif
+											</div>
+										</div>
+									</div>
+								</div>
 		                        @endif
 		                	@endforeach
-						@endisset-->
-						<div class="col-sm-6 mb-2">
-							<div class="card card-item">
-								<div class="row">
-									<div class="col-sm-5 card-left">
-										<img src="{{ url($user->avatar) }}" class="card-img-top" alt="{{ $user->name }}">
-									</div>
-									<div class="col-sm-7 card-right">
-										<h5 class="text-center">Эвакуатор</h5>
-
-										<div class="list-group">
-											<div class="list-group-item list-group-item-action">
-												<p class="text float-left">Перевезти из точки А в точку Б</p>
-											</div>
-											<div class="list-group-item list-group-item-action">
-												<p class="text float-left">Время:</p>
-												<p class="text float-right"><b>04.02.19 12:56</b></p>
-											</div>
-											<div class="list-group-item list-group-item-action">
-												<p class="text float-left">Ставка:</p>
-												<p class="text float-right"><b>3000</b></p>
-											</div>
-										</div>
-
-										<a href="#" class="btn btn-success float-right">Ответить</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 mb-2">
-							<div class="card card-item">
-								<div class="row">
-									<div class="col-sm-5 card-left">
-										<img src="{{ url($user->avatar) }}" class="card-img-top" alt="{{ $user->name }}">
-									</div>
-									<div class="col-sm-7 card-right">
-										<h5 class="text-center">Грузовые</h5>
-
-										<div class="list-group">
-											<div class="list-group-item list-group-item-action">
-												<p class="text float-left">Перевезти из точки А в точку Б</p>
-											</div>
-											<div class="list-group-item list-group-item-action">
-												<p class="text float-left">Время:</p>
-												<p class="text float-right"><b>04.02.19 12:56</b></p>
-											</div>
-											<div class="list-group-item list-group-item-action">
-												<p class="text float-left">Ставка:</p>
-												<p class="text float-right"><b>3000</b></p>
-											</div>
-										</div>
-
-										<a href="#" class="btn btn-success float-right">Ответить</a>
-									</div>
-								</div>
-							</div>
-						</div>
+						@endisset
 	                </div>
                 </div>
             </div>

@@ -87,9 +87,11 @@
                                     <label class="btn btn-success">
                                         <input type="radio" name="isExecutor" id="isExecutor2" autocomplete="off" value="1"> Заказчик
                                     </label>
+                                    <!--
                                     <label class="btn btn-success">
                                         <input type="radio" name="isExecutor" id="isExecutor3" autocomplete="off" value="2"> Диспетчер
                                     </label>
+                                    -->
                                 </div>
                             </div>
                         </div>

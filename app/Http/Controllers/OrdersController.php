@@ -80,12 +80,15 @@ class OrdersController extends Controller
     {
         $userId = Auth::id();
         $userCash = Cash::where('user_id', $userId)->first();
-        $balance = $userCash->balance;
+        
+        //Списание баланса
+        /*$balance = $userCash->balance;
 
         if($balance >= 100) {
             $userCash->balance = $balance-100;
             $userCash->save();
         }
+        */
 
         $order = new OrdersComplete;
 

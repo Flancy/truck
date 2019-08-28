@@ -19,6 +19,6 @@ class Auto extends Model
 
     public function autoCategory()
     {
-        return $this->hasOne('App\AutoCategory');
+        return $this->hasOne('App\AutoCategories', 'id', 'autocategories_id');
     }
 }

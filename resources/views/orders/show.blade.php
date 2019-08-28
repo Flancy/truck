@@ -17,6 +17,9 @@
                                     {{ $order->user->name }}
                                 </h3>
                                 <p>
+                                    <b>Категория:</b> {{ $order->getAutoCategory->name }} <br>
+                                </p>
+                                <p>
                                     <b>Ставка:</b> {{ $order->price }} <br>
                                 </p>
                                 <p>

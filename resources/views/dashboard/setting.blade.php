@@ -48,8 +48,8 @@
                                         <div class="col-sm-4">
                                             <p>
                                                 <b>Автомобиль:</b> {{ $car->name }}; <br>
-                                                <b>Грузоподъемность:</b> {{ $car->weight }} тон;<br>
-                                                <b>Ставка:</b> {{ $car->price }} тон;<br>
+                                                <b>Грузоподъемность:</b> {{ $car->weight }} тонн;<br>
+                                                <b>Ставка:</b> {{ $car->price }} руб;<br>
                                                 <img src="{{ url($car->image) }}" alt="" class="setting-auto">
                                             </p>
                                         </div>
@@ -121,6 +121,9 @@
                                             @else
                                                 <span class="badge badge-success remove-icon">Выполнен</span>
                                             @endif
+                                            <p>
+                                                <b>Категория:</b> {{ $order->getAutoCategory->name }} <br>
+                                            </p>
                                             <p>
                                                 <b>Ставка:</b> {{ $order->price }} <br>
                                             </p>

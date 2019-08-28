@@ -26,6 +26,10 @@ class Orders extends Model
     {
         return $this->belongsTo('App\AutoCategories');
     }
+    public function getAutoCategory()
+    {
+        return $this->hasOne('App\AutoCategories', 'id', 'autocategories_id');
+    }
 
     public function city()
     {

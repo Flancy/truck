@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\AutoCategories;
 use App\Auto;
 use App\User;
@@ -22,12 +23,13 @@ class WelcomeController extends Controller
         $users = User::take(5)->where('isExecutor', 0)->get();
         $cities = City::all();
         $orders = Orders::all();
+        $cars = Auto::groupBy('user_id')->distinct()->get();
 
         $isExecutor = 1;
         $city_id = 1;
         $autocategories_id = 1;
         
-        return view('welcome')->with(['autocategories' => $autocategories, 'users' => $users, 'cities' => $cities, 'orders' => $orders, 'isExecutor' => $isExecutor, 'city_id' => $city_id, 'autocategories_id' => $autocategories_id]);
+        return view('welcome')->with(['cars' => $cars, 'autocategories' => $autocategories, 'users' => $users, 'cities' => $cities, 'orders' => $orders, 'isExecutor' => $isExecutor, 'city_id' => $city_id, 'autocategories_id' => $autocategories_id]);
     }
 
     /**

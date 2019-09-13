@@ -30,6 +30,10 @@ class CreateAutoTable extends Migration
        Schema::table('auto', function($table) {
            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
        });
+
+        Schema::table('auto', function ($table) {
+            $table->softDeletes();
+        });
     }
 
     /**

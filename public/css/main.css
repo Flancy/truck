@@ -188,11 +188,18 @@ textarea {
   text-decoration: underline;
   color: #fff;
 }
+.welcome .navbar-light .navbar-brand {
+  color: #fff;
+  font-weight: bold;
+}
 .navbar-light .btn-success {
   margin-right: 30px;
   color: #fff;
   padding-left: 20px;
   padding-right: 20px;
+}
+.navbar-light .navbar-brand {
+  font-weight: bold;
 }
 .btn-success,
 .btn-primary {
@@ -699,4 +706,76 @@ textarea {
   color: #fff;
   text-transform: uppercase;
   font-size: 40px;
+}
+.table-users tr td,
+.table-users tr th {
+  vertical-align: middle;
+}
+.table-users tr .alert {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-bottom: 0;
+}
+.table-users tr .td_last {
+  width: 300px;
+  text-align: center;
+}
+.table-users tr .td_last a {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.table-users tr .td_last a.btn-success {
+  background-color: #38c172;
+  border-color: #38c172;
+}
+.table-users tr .td_type {
+  width: 200px;
+  text-align: center;
+  font-weight: bold;
+}
+.table-users tr .badge {
+  display: inline-block;
+  margin-left: 15px;
+  padding-top: 7px;
+  padding-bottom: 5px;
+}
+@media only screen and (max-width: 1024px) {
+  .navbar-light .navbar-brand,
+  .welcome .navbar-light .navbar-nav .nav-link,
+  .nav-item {
+    text-align: center;
+    color: #000;
+  }
+  .navbar-light .btn-success {
+    margin-right: 0;
+    display: inline-block;
+    width: auto;
+  }
+  .search {
+    height: auto;
+  }
+  .welcome .bg-white,
+  .operator .bg-white {
+    background-color: #fff !important;
+  }
+  .welcome-slider {
+    padding-bottom: 30px;
+  }
+  .welcome-slider .carousel-control-next {
+    right: -20px;
+    width: 20px;
+  }
+  .welcome-slider .carousel-control-prev {
+    left: -20px;
+    width: 20px;
+  }
+  .welcome-counter h3 {
+    font-size: 36px;
+  }
+  .welcome-counter .text {
+    font-size: 18px;
+  }
+  .executor .card-item .card-left {
+    border-radius: 14px;
+  }
 }

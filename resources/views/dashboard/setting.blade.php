@@ -19,6 +19,8 @@
                                         Исполнитель
                                     @elseif($user->isExecutor == 2)
                                         Диспетчер
+                                    @elseif($user->isExecutor == 10)
+                                        Администратор
                                     @else
                                         Заказчик
                                     @endif)
@@ -28,7 +30,7 @@
                             </div>
 						</div>
                         <div class="col-sm-3 text-right">
-                            <p>Ваш баланс: <b>{{ $user->cash->balance }} руб.</b></p>
+                            <!--<p>Ваш баланс: <b>{{ $user->cash->balance }} руб.</b></p>-->
                         </div>
 					</div>
                 </div>
@@ -48,7 +50,7 @@
                                         <div class="col-sm-4">
                                             <p>
                                                 <b>Автомобиль:</b> {{ $car->name }}; <br>
-                                                <b>Грузоподъемность:</b> {{ $car->weight }} тонн;<br>
+                                                <b>Грузоподъемность:</b> {{ $car->weight }};<br>
                                                 <b>Ставка:</b> {{ $car->price }} руб;<br>
                                                 <img src="{{ url($car->image) }}" alt="" class="setting-auto">
                                             </p>

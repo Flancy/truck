@@ -41,3 +41,8 @@ Route::delete('/order', 'OrdersController@destroyOrder')->name('order.destroy');
 Route::get('/order/{id}', 'OrdersController@showOrder')->name('order.show');
 Route::post('/orderChange', 'OrdersController@changeStatus')->name('orderChange.changeStatus');
 Route::get('/orderChange/{id}/{status}', 'OrdersController@changeStatusComplete')->name('orderChange.changeStatusComplete');
+
+//Admin
+Route::middleware(['admin'])->group(function () {
+	Route::resource('admin', 'Admin\AdminController');
+});

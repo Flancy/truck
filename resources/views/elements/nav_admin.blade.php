@@ -11,20 +11,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}">Как это работает?</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="{{ route('search') }}?isExecutor=1&city_id=1&autocategories_id=1">
-                    Исполнители
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="{{ route('search') }}?isExecutor=0&city_id=1&autocategories_id=1">
-                    Заказы
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('call') }}">Диспетчеру</a>
+                    <a class="nav-link" href="{{ route('about') }}">Пользователи</a>
                 </li>
             </ul>
 
@@ -33,16 +20,8 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link btn btn-success" href="#">Разместить заказ</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Вход') }}</a>
                     </li>
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a>
-                        </li>
-                    @endif
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -51,10 +30,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('home') }}">
-                                {{ __('Главная') }}
-                            </a>
-                            <a class="dropdown-item" href="{{ route('setting') }}">
-                                {{ __('Профиль') }}
+                                {{ __('Пользователи') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

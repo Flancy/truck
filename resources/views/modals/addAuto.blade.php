@@ -15,8 +15,15 @@
                         <input type="text" name="name" class="form-control" id="nameAuto" placeholder="Наименование транспорта:">
                     </div>
                     <div class="form-group">
-                        <label for="weightAuto">Грузоподъемность до:</label>
-                        <input type="number" name="weight" class="form-control" id="weightAuto" placeholder="Вес:">
+                        <label for="weightAuto">Грузоподъемность:</label>
+                        <select class="custom-select" name="weight" id="weightAuto">
+                            <option value="0">Грузоподъемность:</option>
+                            <option value="до 500 кг">до 500 кг</option>
+                            <option value="до 1000 кг">до 1000 кг</option>
+                            <option value="до 1500 кг">до 1500 кг</option>
+                            <option value="до 2000 кг">до 2000 кг</option>
+                            <option value="от 2000 кг">от 2000 кг</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="priceAuto">Ставка:</label>

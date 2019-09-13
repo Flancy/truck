@@ -19,6 +19,10 @@ class CreateCashTable extends Migration
             $table->bigInteger('user_id');
             $table->timestamps();
         });
+
+        Schema::table('cash', function ($table) {
+            $table->softDeletes();
+        });
     }
 
     /**

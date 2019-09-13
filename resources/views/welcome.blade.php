@@ -9,6 +9,12 @@
 	<div class="container container-welcome">
 	    <div class="row justify-content-center">
 	        <div class="col-md-12">
+	        	@if ($message = Session::get('success'))
+					<div class="alert alert-success alert-block">
+						<button type="button" class="close" data-dismiss="alert">×</button>	
+					        <strong>{!! $message !!}</strong>
+					</div>
+				@endif
 	        	<h1 class="text-center">Быстрый поиск спецтехники TruckService</h1>
 	        	<h3 class="text-center">Более 10 000 исполнителей ожидают вас!</h3>
 
@@ -94,26 +100,6 @@
 
                 <div class="card-body text-center">
                 	<div class="row">
-                		<!--@isset($users)
-		                	@foreach($users as $user)
-		                		@if($user->isExecutor == 0)
-			                		<div class="col-sm-6 mb-2">
-										<div class="p-2">
-											<div class="card">
-												<div class="row">
-													<div class="col-sm-5">
-														<img src="{{ url($user->avatar) }}" class="card-img-top" alt="{{ $user->name }}">
-													</div>
-													<div class="col-sm-7">
-														<h5 class="text-left" style="margin-top: 20px"><a href="{{ url('/user/'.$user->id) }}">{{ $user->name }}</a></h5>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								@endif
-		                	@endforeach
-						@endisset-->
 						@isset($cars)
 							@foreach($cars as $car)
 							<div class="col-sm-6 mb-2">

@@ -18,4 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/user', 'Api\ApiUserController');
+Route::apiResource('/users', 'Api\ApiUserController');
+
+Route::delete('/userBan/{id}', 'Api\ApiUserController@banUser');
+Route::delete('/userUnBan/{id}', 'Api\ApiUserController@unBanUser');

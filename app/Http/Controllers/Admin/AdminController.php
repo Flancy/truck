@@ -1,17 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use DB;
-use Auth;
-use App\AutoCategories;
-use App\Auto;
-use App\User;
-use App\City;
-use App\Orders;
+use App\Http\Controllers\Controller;
 
-class WelcomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,26 +14,7 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $autocategories = AutoCategories::all();
-        $users = User::take(5)->where('isExecutor', 0)->get();
-        $cities = City::all();
-        $orders = Orders::all();
-        $cars = Auto::groupBy('user_id')->distinct()->get();
-
-        $isExecutor = 1;
-        $city_id = 1;
-        $autocategories_id = 1;
-
-        return view('welcome')->with([
-            'cars' => $cars, 
-            'autocategories' => $autocategories, 
-            'users' => $users, 
-            'cities' => $cities, 
-            'orders' => $orders, 
-            'isExecutor' => $isExecutor, 
-            'city_id' => $city_id, 
-            'autocategories_id' => $autocategories_id
-        ]);
+        return view('admin.index');
     }
 
     /**

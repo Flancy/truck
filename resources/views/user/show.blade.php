@@ -14,23 +14,6 @@
                         <div class="col-sm-8 text-left">
                             <h3><b>{{ $user->name }}</b></h3>
                             @if($user->isExecutor == 0)
-                                <h5>Автомобили пользователя:</h5>
-
-                                <div class="cars mt-4">
-                                    <div class="row">
-                                        @isset($cars)
-                                            @foreach($cars as $car)
-                                                <div class="col-sm-4">
-                                                    <p>
-                                                        <b>Автомобиль:</b> {{ $car->name }} <br>
-                                                        <img src="{{ url($car->image) }}" alt="" class="setting-auto">
-                                                    </p>
-                                                </div>
-                                            @endforeach
-                                        @endisset
-                                    </div>
-                                </div>
-
                                 <h5>Количество успешных заказов: <b>{{ $ordersComplete }}</b></h5>
                             @elseif($user->isExecutor == 2)
 
@@ -41,6 +24,30 @@
 					</div>
                 </div>
             </div>
+
+            @if($user->isExecutor == 0)
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h2>Автомобили пользователя</h2>
+                        <div class="row">
+                            @isset($cars)
+                                @foreach($cars as $car)
+                                    <div class="col-sm-4">
+                                        <div class="p-4 card">
+                                            <p>
+                                                <b>Автомобиль:</b> {{ $car->name }}; <br>
+                                                <b>Грузоподъемность:</b> {{ $car->weight }}<br>
+                                                <b>Ставка:</b> {{ $car->price }} руб;<br>
+                                                <img src="{{ url($car->image) }}" alt="" class="setting-auto">
+                                            </p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endisset
+                        </div>
+                    </div>
+                </div>
+            @endif
 
             <div class="card mt-4">
                 <div class="card-body">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Auth;
 use App\User;
 use App\Cash;
+use App\Passport;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -76,6 +77,17 @@ class RegisterController extends Controller
 
         $cash = Cash::create([
             'user_id' => $user->id,
+        ]);
+
+        $passport = Passport::create([
+            'user_id' => $user->id,
+            'name' => '',
+            'surname' => '',
+            'patronymic' => '',
+            'number' => '',
+            'city' => '',
+            'date' => '',
+            'verify' => 0,
         ]);
 
         $user->cash_id = $cash->id;

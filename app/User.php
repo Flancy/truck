@@ -46,6 +46,16 @@ class User extends Authenticatable
         return $this->belongsTo('App\Cash');
     }
 
+    public function passport()
+    {
+        return $this->hasOne('App\Passport');
+    }
+
+    public function getOnePassport()
+    {
+        return $this->hasOne('App\Passport')->first();
+    }
+
     public function orders()
     {
         return $this->hasMany('App\OrdersComplete');

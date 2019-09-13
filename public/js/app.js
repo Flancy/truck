@@ -1771,6 +1771,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1783,7 +1788,7 @@ __webpack_require__.r(__webpack_exports__);
       app.users = resp.data;
     })["catch"](function (resp) {
       console.log(resp);
-      alert("Не удалось загрузить компании");
+      alert("Не удалось загрузить пользователей");
     });
   },
   methods: {
@@ -1811,10 +1816,31 @@ __webpack_require__.r(__webpack_exports__);
     unBanUser: function unBanUser(id, index) {
       if (confirm("Вы действительно хотите разбанить пользователя?")) {
         var app = this;
-        axios["delete"]('/api/userUnBan/' + id).then(function (resp) {
+        axios.get('/api/userUnBan/' + id).then(function (resp) {
           app.users[index - 1].deleted_at = null;
         })["catch"](function (resp) {
           alert("Не удалось раззабанить пользователя");
+        });
+      }
+    },
+    verifyUser: function verifyUser(id, index) {
+      if (confirm("Вы действительно хотите подтвердить верифицировать?")) {
+        var app = this;
+        axios.get('/api/verifyUser/' + id).then(function (resp) {
+          console.log(resp);
+          app.users[index - 1].passport.verify = 1;
+        })["catch"](function (resp) {
+          alert("Не удалось подтвердить верифицировать");
+        });
+      }
+    },
+    unVerifyUser: function unVerifyUser(id, index) {
+      if (confirm("Вы действительно хотите отменить верификацию?")) {
+        var app = this;
+        axios["delete"]('/api/unVerifyUser/' + id).then(function (resp) {
+          app.users[index - 1].passport.verify = 0;
+        })["catch"](function (resp) {
+          alert("Не удалось отменить верификацию");
         });
       }
     }
@@ -37234,7 +37260,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "btn btn-sm btn-primary",
-                    attrs: { href: "#" }
+                    attrs: { href: "./user/" + user.id }
                   },
                   [_vm._v("Подробнее")]
                 ),
@@ -37287,6 +37313,42 @@ var render = function() {
                   },
                   [_vm._v("Удалить")]
                 )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "td_type" }, [
+                user.passport.verify === 0
+                  ? _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-sm btn-success",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.verifyUser(user.id, index + 1)
+                          }
+                        }
+                      },
+                      [_vm._v("Подтвердить")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                user.passport.verify === 1
+                  ? _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-sm btn-warning",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.unVerifyUser(user.id, index + 1)
+                          }
+                        }
+                      },
+                      [_vm._v("Отменить")]
+                    )
+                  : _vm._e()
               ])
             ])
           }),
@@ -37309,7 +37371,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Тип пользователя")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Действия")])
+        _c("th", [_vm._v("Действия")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Верифицировать")])
       ])
     ])
   }

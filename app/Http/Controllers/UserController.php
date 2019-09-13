@@ -9,6 +9,7 @@ use App\Auto;
 use App\Reviews;
 use App\Orders;
 use App\OrdersComplete;
+use App\Passport;
 
 class UserController extends Controller
 {
@@ -52,6 +53,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
+        $passport = Passport::where('user_id', $id)->first();
         $countOrders = 0;
 
         $cars = Auto::all();
@@ -87,7 +89,7 @@ class UserController extends Controller
             }
         }
 
-        return view('user.show')->with(['user' => $user, 'cars' => $carsAuthUser, 'reviews' => $reviews, 'ordersComplete' => $countOrders]);
+        return view('user.show')->with(['user' => $user, 'cars' => $carsAuthUser, 'reviews' => $reviews, 'ordersComplete' => $countOrders, 'verify' => $passport->verify, 'passport' => $passport]);
     }
 
     /**

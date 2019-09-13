@@ -84,5 +84,18 @@ class UsersTableSeeder extends Seeder
             'phone' => '8-(800)-888-88-88',
             'created_at' => Carbon::now(),
         ]);
+
+        for($i=1; $i<=7; $i++) {
+            DB::table('passports')->insert([
+                'user_id' => $i,
+                'name' => '',
+                'surname' => '',
+                'patronymic' => '',
+                'number' => '',
+                'city' => '',
+                'date' => '',
+                'verify' => 0,
+            ]);
+        }
     }
 }

@@ -11,7 +11,7 @@
                         <div class="col-sm-4">
                             <img src="{{ url($user->avatar) }}" class="card-img-top" alt="{{ $user->name }}">
                         </div>
-                        <div class="col-sm-8 text-left">
+                        <div class="col-sm-8 text-left pos-rel">
                             <h3><b>{{ $user->name }}</b></h3>
                             @if($user->isExecutor == 0)
                                 <h5>Количество успешных заказов: <b>{{ $ordersComplete }}</b></h5>
@@ -20,10 +20,31 @@
                             @else
                                 <h5>Количество успешных заказов: <b>{{ $ordersComplete }}</b></h5>
                             @endif
+                            @if($verify)
+                                <span class="badge badge-success">✔ Ферифицирован</span>
+                            @else
+                                <span class="badge badge-warning">✘ Не ферифицирован</span>
+                            @endif
                         </div>
 					</div>
                 </div>
             </div>
+
+             @if(Auth::user()->isExecutor == 10)
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h2>Паспортные данные:</h2>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p><b>ФИО:</b> {{ $passport->name }} {{ $passport->surname }} {{ $passport->patronymic }}</p>
+                                <p><b>Дата выдачи:</b> {{ $passport->number }}</p>
+                                <p><b>Кем выдан:</b> {{ $passport->city }}</p>
+                                <p><b>Дата выдачи:</b> {{ $passport->date }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
 
             @if($user->isExecutor == 0)
                 <div class="card mt-4">

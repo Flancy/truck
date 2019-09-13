@@ -532,6 +532,16 @@ textarea {
   display: flex;
   flex-wrap: wrap;
 }
+.pos-rel {
+  position: relative;
+}
+.pos-rel .badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+  padding: 7px 5px 5px 5px;
+}
 .search {
   width: 100%;
   box-shadow: 0 0 14px rgba(0,0,0,0.2);

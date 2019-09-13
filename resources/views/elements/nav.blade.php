@@ -56,6 +56,9 @@
                             <a class="dropdown-item" href="{{ route('setting') }}">
                                 {{ __('Профиль') }}
                             </a>
+                            <a class="dropdown-item" href="{{ route('info') }}">
+                                {{ __('Настройки') }}
+                            </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

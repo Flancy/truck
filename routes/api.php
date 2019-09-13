@@ -22,3 +22,6 @@ Route::apiResource('/users', 'Api\ApiUserController');
 
 Route::delete('/userBan/{id}', 'Api\ApiUserController@banUser');
 Route::delete('/userUnBan/{id}', 'Api\ApiUserController@unBanUser');
+
+Route::get('/verifyUser/{id}', 'Api\ApiUserController@verifyUser');
+Route::get('/unVerifyUser/{id}', 'Api\ApiUserController@unVerifyUser');

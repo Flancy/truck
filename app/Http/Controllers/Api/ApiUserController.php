@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Auto;
 use App\Cash;
+use App\Passport;
 
 class ApiUserController extends Controller
 {
@@ -17,7 +18,7 @@ class ApiUserController extends Controller
      */
     public function index()
     {
-        return User::withTrashed()->get();
+        return User::withTrashed()->with('passport')->get();
     }
 
     /**
@@ -129,5 +130,35 @@ class ApiUserController extends Controller
         $user = User::withTrashed()->find($id)->restore();
 
         return 'Пользователь разбанен';
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function verifyUser($id)
+    {
+        $passport = Passport::where('user_id', $id)->first();
+        $passport->verify = 1;
+        $passport->save();
+
+        return 'Верифицирован';
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function unVerifyUser($id)
+    {
+        $user = Passport::where('user_id', $id)->first();
+        $user->verify = 0;
+        $passport->save();
+
+        return 'Верифицирован';
     }
 }

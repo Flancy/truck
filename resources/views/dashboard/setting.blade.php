@@ -11,8 +11,8 @@
 						<div class="col-sm-2">
 							<img src="{{ url($user->avatar) }}" alt="" class="img-fluid">
                         </div>
-                        <div class="col-sm-7">
-                            <div class="setting-info">
+                        <div class="col-sm-10">
+                            <div class="setting-info pos-rel">
                                 <h3>
                                     <b>{{ $user->name }}</b>
                                     (@if($user->isExecutor == 0)
@@ -27,6 +27,12 @@
                                 </h3>
 
                                 <p><b>Email:</b> {{ $user->email }}</p>
+
+                                @if($verify)
+                                    <span class="badge badge-success">✔ Ферифицирован</span>
+                                @else
+                                    <span class="badge badge-warning">✘ Не ферифицирован</span>
+                                @endif
                             </div>
 						</div>
                         <div class="col-sm-3 text-right">

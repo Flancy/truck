@@ -55,7 +55,7 @@ class DashboardController extends Controller
             }
         }
 
-        return view('dashboard.setting')->with(['user' => $user, 'autocategories' => $carsInfo['autocategories'], 'cities' => $carsInfo['cities'], 'cars' => $carsAuthUser, 'orders' => $ordersAuthUser, 'ordersUser' => $ordersUser]);
+        return view('dashboard.setting')->with(['user' => $user, 'autocategories' => $carsInfo['autocategories'], 'cities' => $carsInfo['cities'], 'cars' => $carsAuthUser, 'orders' => $ordersAuthUser, 'ordersUser' => $ordersUser, 'verify' => Auth::user()->getOnePassport()->verify]);
     }
 
     public function settingSaveAuto(Request $request)

@@ -28,6 +28,9 @@ Route::resource('user', 'UserController');
 //Dashboard
 Route::get('/setting', 'DashboardController@settingShow')->name('setting');
 Route::post('/auto', 'DashboardController@settingSaveAuto')->name('saveAuto');
+//Info
+Route::get('/info', 'Dashboard\InfoController@index')->name('info');
+Route::post('/info', 'Dashboard\InfoController@create')->name('info.create');
 
 //Search
 Route::get('/search', 'SearchController@index')->name('search');
